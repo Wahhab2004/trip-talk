@@ -9,666 +9,179 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0e1a14;
-    --bg2: #142019;
-    --bg3: #1a2c1f;
-    --card: #1c2e21;
-    --card2: #233527;
-    --accent: #c9a84c;
-    --accent2: #e8c96a;
-    --green: #4a8c5c;
-    --green-light: #6ab87e;
-    --text: #f0ede6;
-    --text-muted: #9aab9e;
-    --text-dim: #6b7d6f;
+    --bg: #0e1a14; --bg2: #142019; --bg3: #1a2c1f;
+    --card: #1c2e21; --card2: #233527;
+    --accent: #c9a84c; --accent2: #e8c96a;
+    --green: #4a8c5c; --green-light: #6ab87e;
+    --text: #f0ede6; --text-muted: #9aab9e; --text-dim: #6b7d6f;
     --border: rgba(74,140,92,0.2);
     --font-display: 'Playfair Display', serif;
     --font-serif: 'DM Serif Display', serif;
     --font-body: 'DM Sans', sans-serif;
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--font-body);
-    overflow-x: hidden;
-  }
-
+  body { background: var(--bg); color: var(--text); font-family: var(--font-body); overflow-x: hidden; }
   ::-webkit-scrollbar { width: 6px; }
   ::-webkit-scrollbar-track { background: var(--bg); }
   ::-webkit-scrollbar-thumb { background: var(--green); border-radius: 3px; }
 
-  /* ===== NAVBAR ===== */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    padding: 0 40px;
-    height: 64px;
+    padding: 0 40px; height: 64px;
     display: flex; align-items: center; justify-content: space-between;
-    background: rgba(14,26,20,0.85);
-    backdrop-filter: blur(16px);
+    background: rgba(14,26,20,0.85); backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border);
   }
-  .nav-logo {
-    font-family: var(--font-display);
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--accent);
-    letter-spacing: -0.5px;
-  }
-  .nav-links {
-    display: flex; gap: 8px; list-style: none;
-  }
-  .nav-links a {
-    font-size: 0.85rem;
-    font-weight: 500;
-    color: var(--text-muted);
-    text-decoration: none;
-    padding: 6px 14px;
-    border-radius: 20px;
-    transition: all 0.2s;
-  }
-  .nav-links a:hover, .nav-links a.active {
-    color: var(--text);
-    background: var(--card);
-  }
+  .nav-logo { font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; color: var(--accent); letter-spacing: -0.5px; }
+  .nav-links { display: flex; gap: 8px; list-style: none; }
+  .nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--text-muted); text-decoration: none; padding: 6px 14px; border-radius: 20px; transition: all 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--text); background: var(--card); }
   .nav-actions { display: flex; align-items: center; gap: 12px; }
-  .btn-search {
-    background: none; border: none; cursor: pointer;
-    color: var(--text-muted); font-size: 1.1rem; padding: 8px;
-    transition: color 0.2s;
-  }
+  .btn-search { background: none; border: none; cursor: pointer; color: var(--text-muted); font-size: 1.1rem; padding: 8px; transition: color 0.2s; }
   .btn-search:hover { color: var(--accent); }
 
-  /* ===== HERO ===== */
   .hero {
-    position: relative;
-    height: 100vh; min-height: 680px;
+    position: relative; height: 100vh; min-height: 680px;
     display: flex; flex-direction: column; justify-content: flex-end;
-    padding: 80px 60px;
-    overflow: hidden;
+    padding: 80px 60px; overflow: hidden;
   }
-  .hero-bg {
-    position: absolute; inset: 0;
-    background: linear-gradient(135deg, #0a1f12 0%, #1a3a24 50%, #0d2318 100%);
-  }
+  .hero-bg { position: absolute; inset: 0; background: linear-gradient(135deg, #0a1f12 0%, #1a3a24 50%, #0d2318 100%); }
   .hero-bg::before {
-    content: '';
-    position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse 80% 60% at 60% 40%, rgba(74,140,92,0.15) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 40% at 20% 70%, rgba(201,168,76,0.08) 0%, transparent 60%);
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(74,140,92,0.15) 0%, transparent 70%),
+                radial-gradient(ellipse 40% 40% at 20% 70%, rgba(201,168,76,0.08) 0%, transparent 60%);
   }
   .hero-foliage {
-    position: absolute; bottom: 0; left: 0; right: 0;
-    height: 300px;
+    position: absolute; bottom: 0; left: 0; right: 0; height: 300px;
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 300'%3E%3Cpath fill='%230a1a0e' fill-opacity='0.9' d='M0,300 L0,180 Q50,120 100,160 Q130,100 160,140 Q200,60 240,120 Q270,40 300,100 Q340,20 380,90 Q410,30 440,80 Q480,0 520,70 Q560,10 600,60 Q640,0 680,50 Q720,20 760,80 Q800,0 840,60 Q880,30 920,90 Q960,10 1000,70 Q1040,0 1080,60 Q1120,30 1160,100 Q1200,40 1240,110 Q1280,60 1320,130 Q1370,80 1440,150 L1440,300 Z'/%3E%3C/svg%3E") bottom/cover no-repeat;
     opacity: 0.7;
   }
-  .hero-content {
-    position: relative; z-index: 2;
-    max-width: 680px;
-    animation: heroFade 1.2s ease forwards;
-  }
-  @keyframes heroFade {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .hero h1 {
-    font-family: var(--font-display);
-    font-size: clamp(2.4rem, 5vw, 4.2rem);
-    font-weight: 900;
-    line-height: 1.05;
-    color: var(--text);
-    margin-bottom: 20px;
-  }
-  .hero h1 em {
-    font-style: italic;
-    color: var(--accent2);
-  }
-  .hero p {
-    font-size: 1rem;
-    line-height: 1.7;
-    color: var(--text-muted);
-    max-width: 500px;
-    margin-bottom: 32px;
-  }
-  .hero-cta {
-    display: flex; gap: 12px; flex-wrap: wrap;
-  }
-  .btn-primary {
-    background: var(--accent);
-    color: #0e1a14;
-    border: none;
-    padding: 13px 28px;
-    border-radius: 4px;
-    font-family: var(--font-body);
-    font-size: 0.9rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s;
-    text-decoration: none;
-    display: inline-flex; align-items: center; gap: 8px;
-  }
+  .hero-content { position: relative; z-index: 2; max-width: 680px; animation: heroFade 1.2s ease forwards; }
+  @keyframes heroFade { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  .hero h1 { font-family: var(--font-display); font-size: clamp(2.4rem, 5vw, 4.2rem); font-weight: 900; line-height: 1.05; color: var(--text); margin-bottom: 20px; }
+  .hero h1 em { font-style: italic; color: var(--accent2); }
+  .hero p { font-size: 1rem; line-height: 1.7; color: var(--text-muted); max-width: 500px; margin-bottom: 32px; }
+  .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-primary { background: var(--accent); color: #0e1a14; border: none; padding: 13px 28px; border-radius: 4px; font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
   .btn-primary:hover { background: var(--accent2); transform: translateY(-1px); }
-
-  .hero-stats {
-    position: absolute; bottom: 80px; right: 60px;
-    z-index: 2;
-    display: flex; gap: 32px;
-    animation: heroFade 1.4s ease forwards;
-  }
+  .hero-stats { position: absolute; bottom: 80px; right: 60px; z-index: 2; display: flex; gap: 32px; animation: heroFade 1.4s ease forwards; }
   .stat-item { text-align: center; }
-  .stat-num {
-    font-family: var(--font-display);
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--accent);
-    display: block;
-  }
-  .stat-label {
-    font-size: 0.72rem;
-    color: var(--text-dim);
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-  }
+  .stat-num { font-family: var(--font-display); font-size: 2rem; font-weight: 700; color: var(--accent); display: block; }
+  .stat-label { font-size: 0.72rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.8px; }
 
-  /* ===== SECTION BASE ===== */
   section { padding: 80px 60px; }
-  .section-header {
-    display: flex; align-items: flex-end; justify-content: space-between;
-    margin-bottom: 36px;
-  }
-  .section-header h2 {
-    font-family: var(--font-display);
-    font-size: 1.9rem;
-    font-weight: 700;
-    color: var(--text);
-  }
-  .section-header p {
-    font-size: 0.85rem;
-    color: var(--text-dim);
-    margin-top: 4px;
-    max-width: 500px;
-  }
+  .section-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 36px; }
+  .section-header h2 { font-family: var(--font-display); font-size: 1.9rem; font-weight: 700; color: var(--text); }
+  .section-header p { font-size: 0.85rem; color: var(--text-dim); margin-top: 4px; max-width: 500px; }
   .section-nav { display: flex; gap: 8px; }
-  .nav-btn {
-    width: 38px; height: 38px;
-    border-radius: 50%;
-    border: 1px solid var(--border);
-    background: var(--card);
-    color: var(--text-muted);
-    cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1rem;
-    transition: all 0.2s;
-  }
+  .nav-btn { width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--border); background: var(--card); color: var(--text-muted); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1rem; transition: all 0.2s; }
   .nav-btn:hover { background: var(--green); color: white; border-color: var(--green); }
 
-  /* ===== ARTICLES CAROUSEL ===== */
   .articles-section { background: var(--bg2); }
   .carousel-wrapper { position: relative; overflow: hidden; }
-  .carousel-track {
-    display: flex; gap: 20px;
-    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
-  .article-card {
-    flex: 0 0 calc(33.33% - 14px);
-    border-radius: 8px;
-    overflow: hidden;
-    background: var(--card);
-    border: 1px solid var(--border);
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
-    text-decoration: none;
-  }
-  .article-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-  }
-  .card-img {
-    height: 200px;
-    position: relative;
-    overflow: hidden;
-  }
-  .card-img img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s;
-  }
+  .carousel-track { display: flex; gap: 20px; transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+  .article-card { flex: 0 0 calc(33.33% - 14px); border-radius: 8px; overflow: hidden; background: var(--card); border: 1px solid var(--border); cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; text-decoration: none; }
+  .article-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+  .card-img { height: 200px; position: relative; overflow: hidden; }
+  .card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
   .article-card:hover .card-img img { transform: scale(1.05); }
-  .card-img-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
-  }
-  .card-category {
-    position: absolute; top: 14px; left: 14px;
-    background: var(--accent);
-    color: #0e1a14;
-    font-size: 0.68rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    padding: 4px 10px;
-    border-radius: 3px;
-  }
+  .card-img-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%); }
+  .card-category { position: absolute; top: 14px; left: 14px; background: var(--accent); color: #0e1a14; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; padding: 4px 10px; border-radius: 3px; }
   .card-body { padding: 20px; }
-  .card-body h3 {
-    font-family: var(--font-display);
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--text);
-    line-height: 1.35;
-    margin-bottom: 10px;
-  }
-  .card-body p {
-    font-size: 0.82rem;
-    line-height: 1.6;
-    color: var(--text-muted);
-    margin-bottom: 16px;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-  .card-meta {
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .card-author {
-    display: flex; align-items: center; gap: 8px;
-  }
-  .avatar {
-    width: 28px; height: 28px;
-    border-radius: 50%;
-    background: var(--green);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.7rem;
-    font-weight: 700;
-    color: white;
-    flex-shrink: 0;
-  }
+  .card-body h3 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--text); line-height: 1.35; margin-bottom: 10px; }
+  .card-body p { font-size: 0.82rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 16px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .card-meta { display: flex; align-items: center; justify-content: space-between; }
+  .card-author { display: flex; align-items: center; gap: 8px; }
+  .avatar { width: 28px; height: 28px; border-radius: 50%; background: var(--green); display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; color: white; flex-shrink: 0; }
   .author-name { font-size: 0.78rem; color: var(--text-muted); }
-  .read-more {
-    display: flex; align-items: center; gap: 5px;
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: var(--accent);
-    text-decoration: none;
-    transition: gap 0.2s;
-    cursor: pointer;
-  }
+  .read-more { display: flex; align-items: center; gap: 5px; font-size: 0.78rem; font-weight: 600; color: var(--accent); text-decoration: none; transition: gap 0.2s; cursor: pointer; }
   .read-more:hover { gap: 8px; }
+  .carousel-dots { display: flex; justify-content: center; gap: 8px; margin-top: 28px; }
+  .dot { width: 8px; height: 8px; border-radius: 4px; background: var(--card2); border: none; cursor: pointer; transition: all 0.3s; }
+  .dot.active { width: 24px; background: var(--accent); }
 
-  .carousel-dots {
-    display: flex; justify-content: center; gap: 8px;
-    margin-top: 28px;
-  }
-  .dot {
-    width: 8px; height: 8px;
-    border-radius: 4px;
-    background: var(--card2);
-    border: none; cursor: pointer;
-    transition: all 0.3s;
-  }
-  .dot.active {
-    width: 24px;
-    background: var(--accent);
-  }
-
-  /* ===== DATA DASHBOARD ===== */
   .dashboard-section { background: var(--bg3); }
-  .dashboard-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-  }
-  .dash-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 24px;
-  }
-  .dash-card-header {
-    display: flex; align-items: center; justify-content: space-between;
-    margin-bottom: 20px;
-  }
-  .dash-card-title {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-  }
-  .dash-badge {
-    font-size: 0.7rem;
-    padding: 3px 8px;
-    border-radius: 3px;
-    background: rgba(74,140,92,0.2);
-    color: var(--green-light);
-    font-weight: 600;
-  }
-  .dash-num {
-    font-family: var(--font-display);
-    font-size: 2.4rem;
-    font-weight: 700;
-    color: var(--text);
-  }
-  .dash-num span {
-    font-size: 1rem;
-    color: var(--text-dim);
-    font-family: var(--font-body);
-    font-weight: 400;
-  }
-  .dash-change {
-    font-size: 0.82rem;
-    color: var(--green-light);
-    margin-top: 4px;
-  }
+  .dashboard-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .dash-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 24px; }
+  .dash-card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+  .dash-card-title { font-size: 0.85rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.8px; }
+  .dash-badge { font-size: 0.7rem; padding: 3px 8px; border-radius: 3px; background: rgba(74,140,92,0.2); color: var(--green-light); font-weight: 600; }
+  .dash-num { font-family: var(--font-display); font-size: 2.4rem; font-weight: 700; color: var(--text); }
+  .dash-num span { font-size: 1rem; color: var(--text-dim); font-family: var(--font-body); font-weight: 400; }
+  .dash-change { font-size: 0.82rem; color: var(--green-light); margin-top: 4px; }
   .bar-list { margin-top: 16px; }
   .bar-item { margin-bottom: 12px; }
-  .bar-label {
-    display: flex; justify-content: space-between;
-    font-size: 0.78rem;
-    color: var(--text-muted);
-    margin-bottom: 6px;
-  }
-  .bar-track {
-    height: 4px;
-    background: var(--card2);
-    border-radius: 2px;
-    overflow: hidden;
-  }
-  .bar-fill {
-    height: 100%;
-    border-radius: 2px;
-    background: linear-gradient(90deg, var(--green), var(--accent));
-    transition: width 1s ease;
-  }
-  .mini-chart {
-    height: 80px; margin-top: 16px;
-    display: flex; align-items: flex-end; gap: 4px;
-  }
-  .chart-bar {
-    flex: 1;
-    border-radius: 2px 2px 0 0;
-    background: var(--card2);
-    transition: height 0.5s ease, background 0.2s;
-    cursor: pointer;
-    min-height: 4px;
-  }
+  .bar-label { display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--text-muted); margin-bottom: 6px; }
+  .bar-track { height: 4px; background: var(--card2); border-radius: 2px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 2px; background: linear-gradient(90deg, var(--green), var(--accent)); transition: width 1s ease; }
+  .mini-chart { height: 80px; margin-top: 16px; display: flex; align-items: flex-end; gap: 4px; }
+  .chart-bar { flex: 1; border-radius: 2px 2px 0 0; background: var(--card2); transition: height 0.5s ease, background 0.2s; cursor: pointer; min-height: 4px; }
   .chart-bar:hover, .chart-bar.active { background: var(--green); }
-  .chart-labels {
-    display: flex; gap: 4px;
-    margin-top: 8px;
-  }
-  .chart-label {
-    flex: 1;
-    font-size: 0.6rem;
-    text-align: center;
-    color: var(--text-dim);
-  }
+  .chart-labels { display: flex; gap: 4px; margin-top: 8px; }
+  .chart-label { flex: 1; font-size: 0.6rem; text-align: center; color: var(--text-dim); }
 
-  /* ===== TEAM ===== */
   .team-section { background: var(--bg2); }
-  .team-grid {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 16px;
-    margin-top: 40px;
-  }
-  .team-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 24px 16px;
-    text-align: center;
-    transition: transform 0.2s, border-color 0.2s;
-  }
+  .team-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; margin-top: 40px; }
+  .team-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 24px 16px; text-align: center; transition: transform 0.2s, border-color 0.2s; }
   .team-card:hover { transform: translateY(-3px); border-color: var(--green); }
-  .team-avatar {
-    width: 64px; height: 64px;
-    border-radius: 50%;
-    margin: 0 auto 14px;
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--font-display);
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: white;
-    border: 2px solid var(--border);
-  }
-  .team-card h4 {
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 4px;
-    line-height: 1.3;
-  }
-  .team-card .role {
-    font-size: 0.7rem;
-    color: var(--text-dim);
-    margin-bottom: 8px;
-  }
-  .team-card .nim {
-    font-size: 0.68rem;
-    color: var(--accent);
-    font-weight: 500;
-  }
+  .team-avatar { width: 64px; height: 64px; border-radius: 50%; margin: 0 auto 14px; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; color: white; border: 2px solid var(--border); }
+  .team-card h4 { font-size: 0.82rem; font-weight: 600; color: var(--text); margin-bottom: 4px; line-height: 1.3; }
+  .team-card .role { font-size: 0.7rem; color: var(--text-dim); margin-bottom: 8px; }
+  .team-card .nim { font-size: 0.68rem; color: var(--accent); font-weight: 500; }
 
-  /* ===== FOOTER ===== */
-  footer {
-    background: var(--bg);
-    border-top: 1px solid var(--border);
-    padding: 56px 60px 32px;
-  }
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 40px;
-    margin-bottom: 48px;
-  }
-  .footer-brand .logo {
-    font-family: var(--font-display);
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--accent);
-    margin-bottom: 14px;
-  }
-  .footer-brand p {
-    font-size: 0.82rem;
-    color: var(--text-dim);
-    line-height: 1.7;
-    max-width: 340px;
-  }
-  .footer-col h4 {
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    color: var(--text-muted);
-    margin-bottom: 16px;
-  }
+  footer { background: var(--bg); border-top: 1px solid var(--border); padding: 56px 60px 32px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; margin-bottom: 48px; }
+  .footer-brand .logo { font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; color: var(--accent); margin-bottom: 14px; }
+  .footer-brand p { font-size: 0.82rem; color: var(--text-dim); line-height: 1.7; max-width: 340px; }
+  .footer-col h4 { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-muted); margin-bottom: 16px; }
   .footer-col ul { list-style: none; }
   .footer-col ul li { margin-bottom: 8px; }
-  .footer-col ul li a {
-    font-size: 0.82rem;
-    color: var(--text-dim);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
+  .footer-col ul li a { font-size: 0.82rem; color: var(--text-dim); text-decoration: none; transition: color 0.2s; }
   .footer-col ul li a:hover { color: var(--text); }
-  .footer-bottom {
-    display: flex; align-items: center; justify-content: space-between;
-    border-top: 1px solid var(--border);
-    padding-top: 24px;
-    font-size: 0.78rem;
-    color: var(--text-dim);
-  }
+  .footer-bottom { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); padding-top: 24px; font-size: 0.78rem; color: var(--text-dim); }
 
-  /* ===== ARTICLE MODAL ===== */
-  .article-modal {
-    position: fixed; inset: 0;
-    z-index: 200;
-    display: none;
-    background: rgba(0,0,0,0.85);
-    backdrop-filter: blur(8px);
-    overflow-y: auto;
-  }
+  .article-modal { position: fixed; inset: 0; z-index: 200; display: none; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); overflow-y: auto; }
   .article-modal.open { display: block; animation: fadeIn 0.3s ease; }
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  .article-inner {
-    max-width: 820px;
-    margin: 60px auto;
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    overflow: hidden;
-    animation: slideUp 0.4s ease;
-  }
-  @keyframes slideUp {
-    from { transform: translateY(40px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-  }
-  .article-hero-img {
-    width: 100%; height: 320px;
-    object-fit: cover;
-    display: block;
-  }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  .article-inner { max-width: 820px; margin: 60px auto; background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; animation: slideUp 0.4s ease; }
+  @keyframes slideUp { from { transform: translateY(40px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  .article-hero-img { width: 100%; height: 320px; object-fit: cover; display: block; }
   .article-content { padding: 48px; }
-  .article-meta-bar {
-    display: flex; align-items: center; gap: 12px;
-    margin-bottom: 24px; flex-wrap: wrap;
-  }
-  .article-cat {
-    background: rgba(201,168,76,0.15);
-    border: 1px solid rgba(201,168,76,0.3);
-    color: var(--accent);
-    font-size: 0.72rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    padding: 4px 10px;
-    border-radius: 3px;
-  }
+  .article-meta-bar { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
+  .article-cat { background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.3); color: var(--accent); font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; padding: 4px 10px; border-radius: 3px; }
   .article-date { font-size: 0.78rem; color: var(--text-dim); }
   .article-read-time { font-size: 0.78rem; color: var(--text-dim); }
-  .article-content h1 {
-    font-family: var(--font-display);
-    font-size: 2rem;
-    font-weight: 900;
-    line-height: 1.2;
-    color: var(--text);
-    margin-bottom: 20px;
-  }
-  .article-lead {
-    font-size: 1.05rem;
-    line-height: 1.75;
-    color: var(--text-muted);
-    margin-bottom: 32px;
-    border-left: 3px solid var(--accent);
-    padding-left: 20px;
-    font-style: italic;
-  }
-  .article-body p {
-    font-size: 0.92rem;
-    line-height: 1.85;
-    color: var(--text-muted);
-    margin-bottom: 20px;
-  }
-  .article-body h2 {
-    font-family: var(--font-display);
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--text);
-    margin: 32px 0 16px;
-  }
-  .article-body blockquote {
-    background: var(--card);
-    border-left: 3px solid var(--green);
-    padding: 20px 24px;
-    border-radius: 0 6px 6px 0;
-    margin: 24px 0;
-    font-style: italic;
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    line-height: 1.7;
-  }
-  .article-authors {
-    margin-top: 48px;
-    padding-top: 32px;
-    border-top: 1px solid var(--border);
-  }
-  .article-authors h3 {
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--text-dim);
-    margin-bottom: 20px;
-  }
-  .authors-row {
-    display: flex; gap: 16px; flex-wrap: wrap;
-  }
-  .author-chip {
-    display: flex; align-items: center; gap: 10px;
-    background: var(--card);
-    border: 1px solid var(--border);
-    padding: 8px 14px;
-    border-radius: 4px;
-  }
-  .author-chip .av {
-    width: 32px; height: 32px;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: white;
-  }
+  .article-content h1 { font-family: var(--font-display); font-size: 2rem; font-weight: 900; line-height: 1.2; color: var(--text); margin-bottom: 20px; }
+  .article-lead { font-size: 1.05rem; line-height: 1.75; color: var(--text-muted); margin-bottom: 32px; border-left: 3px solid var(--accent); padding-left: 20px; font-style: italic; }
+  .article-body p { font-size: 0.92rem; line-height: 1.85; color: var(--text-muted); margin-bottom: 20px; }
+  .article-body h2 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--text); margin: 32px 0 16px; }
+  .article-body blockquote { background: var(--card); border-left: 3px solid var(--green); padding: 20px 24px; border-radius: 0 6px 6px 0; margin: 24px 0; font-style: italic; color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; }
+  .article-authors { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border); }
+  .article-authors h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-dim); margin-bottom: 20px; }
+  .authors-row { display: flex; gap: 16px; flex-wrap: wrap; }
+  .author-chip { display: flex; align-items: center; gap: 10px; background: var(--card); border: 1px solid var(--border); padding: 8px 14px; border-radius: 4px; }
+  .author-chip .av { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; color: white; }
   .author-chip .info h4 { font-size: 0.82rem; color: var(--text); font-weight: 600; }
   .author-chip .info span { font-size: 0.72rem; color: var(--text-dim); }
-  .modal-close {
-    position: absolute; top: 80px; right: calc((100% - 820px)/2 + 16px);
-    width: 40px; height: 40px;
-    border-radius: 50%;
-    background: var(--card);
-    border: 1px solid var(--border);
-    color: var(--text);
-    font-size: 1.1rem;
-    cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    transition: background 0.2s;
-    z-index: 201;
-  }
+  .modal-close { position: absolute; top: 80px; right: calc((100% - 820px)/2 + 16px); width: 40px; height: 40px; border-radius: 50%; background: var(--card); border: 1px solid var(--border); color: var(--text); font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; z-index: 201; }
   .modal-close:hover { background: var(--card2); }
 
-  /* ===== RESPONSIVE ===== */
   @media (max-width: 1024px) {
-    section { padding: 60px 32px; }
-    nav { padding: 0 24px; }
-    .hero { padding: 60px 32px; }
-    .hero-stats { right: 32px; bottom: 60px; }
-    .team-grid { grid-template-columns: repeat(3, 1fr); }
-    .footer-grid { grid-template-columns: 1fr 1fr; }
-    .modal-close { right: 24px; }
+    section { padding: 60px 32px; } nav { padding: 0 24px; } .hero { padding: 60px 32px; }
+    .hero-stats { right: 32px; bottom: 60px; } .team-grid { grid-template-columns: repeat(3, 1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr; } .modal-close { right: 24px; }
   }
   @media (max-width: 768px) {
-    .nav-links { display: none; }
-    .article-card { flex: 0 0 85%; }
-    .team-grid { grid-template-columns: repeat(2, 1fr); }
-    .dashboard-grid { grid-template-columns: 1fr; }
-    .footer-grid { grid-template-columns: 1fr; }
-    .hero-stats { display: none; }
-    .article-inner { margin: 0; border-radius: 0; }
-    .modal-close { top: 16px; right: 16px; }
-    .article-content { padding: 28px 20px; }
+    .nav-links { display: none; } .article-card { flex: 0 0 85%; } .team-grid { grid-template-columns: repeat(2, 1fr); }
+    .dashboard-grid { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: 1fr; }
+    .hero-stats { display: none; } .article-inner { margin: 0; border-radius: 0; }
+    .modal-close { top: 16px; right: 16px; } .article-content { padding: 28px 20px; }
   }
 </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
 <nav>
   <div class="nav-logo">TripTalk</div>
   <ul class="nav-links">
@@ -681,7 +194,6 @@
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-bg"></div>
   <div class="hero-foliage"></div>
@@ -693,22 +205,12 @@
     </div>
   </div>
   <div class="hero-stats">
-    <div class="stat-item">
-      <span class="stat-num">34</span>
-      <span class="stat-label">Provinsi</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-num">1.340+</span>
-      <span class="stat-label">Suku Bangsa</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-num">16K+</span>
-      <span class="stat-label">Pulau</span>
-    </div>
+    <div class="stat-item"><span class="stat-num">34</span><span class="stat-label">Provinsi</span></div>
+    <div class="stat-item"><span class="stat-num">1.340+</span><span class="stat-label">Suku Bangsa</span></div>
+    <div class="stat-item"><span class="stat-num">16K+</span><span class="stat-label">Pulau</span></div>
   </div>
 </section>
 
-<!-- FEATURED ARTICLES -->
 <section class="articles-section" id="articles">
   <div class="section-header">
     <div>
@@ -723,7 +225,6 @@
   <div class="carousel-wrapper">
     <div class="carousel-track" id="articleCarousel">
 
-      <!-- ARTIKEL 1: Ramayana Ballet -->
       <a href="#" class="article-card" onclick="openArticle(0); return false;">
         <div class="card-img">
           <img src="https://storage.googleapis.com/mihwan/images/post/ramayana-ballet-prambanan.jpg" alt="Ramayana Ballet Prambanan">
@@ -742,15 +243,16 @@
         </div>
       </a>
 
-      <!-- ARTIKEL 2: Template -->
       <a href="#" class="article-card" onclick="openArticle(1); return false;">
         <div class="card-img">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStNcV07CE-tSMVNTOvj5zFe_nBFxmBgKfQlA&s">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Candi Prambanan Senja">
           <div class="card-img-overlay"></div>
           <span class="card-category">Sejarah</span>
         </div>
         <div class="card-body">
           <h3>Antara Sejarah dan Media Sosial: Cara Baru Wisatawan Menikmati Prambanan</h3>
+          <p>Di balik tren berfoto di Prambanan, tersimpan pertanyaan penting — apa yang sebenarnya kita cari saat berwisata ke situs budaya berusia 1.000 tahun?</p>
+          <div class="card-meta">
             <div class="card-author">
               <div class="avatar" style="background:#5b8cdb">SP</div>
               <span class="author-name">Shintaningtyas P.P.</span>
@@ -760,19 +262,19 @@
         </div>
       </a>
 
-      <!-- ARTIKEL 3: Template -->
       <a href="#" class="article-card" onclick="openArticle(2); return false;">
         <div class="card-img">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStNcV07CE-tSMVNTOvj5zFe_nBFxmBgKfQlA&s">
+          <img src="https://images.unsplash.com/photo-1596700695792-a70d8c2b64a5?w=600&q=80" alt="Menjelajahi Candi Prambanan">
           <div class="card-img-overlay"></div>
-          <span class="card-category">Seni</span>
+          <span class="card-category">Seni &amp; Budaya</span>
         </div>
         <div class="card-body">
           <h3>Menjelajahi Candi Prambanan: Kemegahan Sejarah dan Seni yang Mendunia</h3>
+          <p>Bangunan setinggi 47 meter yang berdiri tegak tanpa semen sejak abad ke-9 — inilah kisah megah Candi Prambanan yang wajib masuk bucket list kamu!</p>
           <div class="card-meta">
             <div class="card-author">
-              <div class="avatar" style="background:#7c5cdb">AR</div>
-              <span class="author-name">Arief Rahmat N.</span>
+              <div class="avatar" style="background:#4a8c5c">MS</div>
+              <span class="author-name">Tim TripTalk</span>
             </div>
             <span class="read-more">Baca →</span>
           </div>
@@ -786,7 +288,6 @@
   </div>
 </section>
 
-<!-- DATA DASHBOARD -->
 <section class="dashboard-section" id="dashboard">
   <div class="section-header">
     <div>
@@ -814,7 +315,7 @@
       <div class="dash-change">↑ Target 2025: 5.8% PDB</div>
       <div class="bar-list">
         <div class="bar-item">
-          <div class="bar-label"><span>Bali & NTB</span><span>42.5%</span></div>
+          <div class="bar-label"><span>Bali &amp; NTB</span><span>42.5%</span></div>
           <div class="bar-track"><div class="bar-fill" style="width:42.5%"></div></div>
         </div>
         <div class="bar-item">
@@ -826,7 +327,7 @@
           <div class="bar-track"><div class="bar-fill" style="width:12.1%"></div></div>
         </div>
         <div class="bar-item">
-          <div class="bar-label"><span>Kalimantan & Timur</span><span>9.6%</span></div>
+          <div class="bar-label"><span>Kalimantan &amp; Timur</span><span>9.6%</span></div>
           <div class="bar-track"><div class="bar-fill" style="width:9.6%"></div></div>
         </div>
       </div>
@@ -834,12 +335,9 @@
   </div>
 </section>
 
-<!-- TEAM -->
 <section class="team-section" id="team">
   <div class="section-header">
-    <div>
-      <h2>Tim Peneliti</h2>
-    </div>
+    <div><h2>Tim Peneliti</h2></div>
   </div>
   <div class="team-grid">
     <div class="team-card">
@@ -881,7 +379,6 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
@@ -904,32 +401,40 @@
   </div>
 </footer>
 
-<!-- ARTICLE MODAL -->
 <div class="article-modal" id="articleModal">
   <button class="modal-close" onclick="closeArticle()">✕</button>
   <div class="article-inner" id="articleInner"></div>
 </div>
 
 <script>
-// ===== ARTICLE DATA =====
+const allAuthors = [
+  { init: "MS", color: "#4a8c5c", name: "Muhammad Shofyyulloh",            role: "23/521917/SA/22691" },
+  { init: "KR", color: "#c9a84c", name: "Kristiana Riestya Dhamajanti",    role: "24/535307/SA/22934" },
+  { init: "SP", color: "#5b8cdb", name: "Shintaningtyas Prastiwi Putri",   role: "24/534991/SA/22913" },
+  { init: "SM", color: "#d4624e", name: "Sekar Manah Sejati",               role: "24/544598/SA/23486" },
+  { init: "AR", color: "#7c5cdb", name: "Arief Rahmat Nurhidayat",         role: "24/542525/SA/23315" },
+  { init: "MJ", color: "#4a9c7a", name: "Made Jyotisuci Sastra Dwijaksara",role: "25/564408/SA/24036" }
+];
+
 const articles = [
   {
     cat: "Budaya",
     date: "20 Mei 2026",
+    readTime: "8 menit baca",
     img: "https://storage.googleapis.com/mihwan/images/post/ramayana-ballet-prambanan.jpg",
     title: "Ramayana Ballet Prambanan: Pertunjukan Epik di Panggung Candi Milenium",
-    lead: "Di era pariwisata modern, Ramayana Ballet Prambanan tetap menjadi bukti bahwa seni tradisi dapat bertahan dan berkembang. Lebih dari 60 tahun, pertunjukan ini terus menampilkan penari-penari terbaik di kawasan ini, menjaga warisan budaya Indonesia untuk generasi mendatang.",
-    body: `<p>SLEMAN, DIY – Di tengah megahnya Candi Prambanan yang berusia lebih dari 1.000 tahun, sebuah pertunjukan seni tradisi terus berlanjut sudah sejak 1961. Sendratari Ramayana Prambanan bukan sekadar tarian, melainkan visualisasi epik Ramayana yang dimainkan di panggung terbuka dengan latar candi Hindu terbesar di Indonesia. Bagi wisatawan yang berkunjung ke Yogyakarta, menyaksikan Ramayana Ballet adalah cara istimewa untuk menikmati seni, budaya, dan sejarah Jawa dalam satu pengalaman yang tak terlupakan.</p>
-    <h2>Lokasi Strategis di Kompleks Candi Prambanan</h2>
-    <p>Ramayana Ballet dipentaskan di Taman Wisata Candi Prambanan, berlokasi di Jl. Raya Solo - Yogyakarta No.16, Kranggan, Bokoharjo, Kecamatan Prambanan, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55571. Tempat ini berada sekitar 16 kilometer sebelah timur kota Yogyakarta, mudah dijangkau baik dari pusat kota maupun dari Bandara Internasional Yogyakarta.</p>
-    <p>Keunikan utama pertunjukan ini ketika dipentaskan di panggung terbuka (Open Stage) adalah latar belakang Candi Prambanan yang terlihat langsung dari panggung. Hal ini menciptakan suasana magis yang membuat pengunjung seolah terserap ke dalam cerita Ramayana itu sendiri.</p>
-    <h2>Sendratari Terpanjang di Indonesia</h2>
-    <p>Sendratari Ramayana adalah pertunjukan kesenian yang paling populer di Yogyakarta. Pertunjukan ini menggabungkan tari dan drama tanpa dialog, hanya diiringi musik gamelan tradisional Jawa. Dengan dipentaskan di panggung terbuka di Prambanan, penampilan ini menampilkan 16 penari utama dan lebih dari 200 penari serta musisi yang berasal dari berbagai sanggar tari di Yogyakarta.</p>
-    <h2>Warisan Budaya yang Terus Hidup</h2>
-    <p>Ramayana Ballet Prambanan bukan hanya pertunjukan wisata, tetapi juga media pembelajaran budaya. Penelitian dari UGM menunjukkan bahwa pertunjukan ini digunakan sebagai media karya wisata untuk siswa belajar tentang seni dan budaya tradisional. Perawatan candi dan pelestarian seni ini dikelola oleh PT Taman Wisata Candi Borobudur, Prambanan &amp; Ratu Boko (persero), entitas yang dipercaya pemerintah untuk menjaga tiga situs warisan dunia Indonesia.</p>
-    <h2>Mengunjungi Ramayana Ballet</h2>
-    <p>Untuk menghadiri pertunjukan, pengunjung dapat membeli tiket melalui berbagai platform online seperti Klook, Traveloka, atau langsung di loket Taman Wisata Candi Prambanan. Beberapa tiket menawarkan pilihan reschedule dan diskon untuk aktivitas liburan. Bagi wisatawan yang membutuhkan transportasi dari kota Yogyakarta, tersedia layanan antar-jemput yang dapat dipesan bersamaan dengan pembelian tiket.</p>
-    <blockquote><em>Untuk informasi lebih lanjut tentang jadwal dan harga tiket terbaru, kunjungi website resmi PT Taman Wisata Candi atau hubungi layanan pelanggan setempat.</em></blockquote>`,
+    lead: "Di era pariwisata modern, Ramayana Ballet Prambanan tetap menjadi bukti bahwa seni tradisi dapat bertahan dan berkembang. Lebih dari 60 tahun pertunjukan ini terus menjaga warisan budaya Indonesia untuk generasi mendatang.",
+    body: `<p>SLEMAN, DIY – Di tengah megahnya Candi Prambanan yang berusia lebih dari 1.000 tahun, sebuah pertunjukan seni tradisi terus berlanjut sejak 1961. Sendratari Ramayana Prambanan bukan sekadar tarian, melainkan visualisasi epik Ramayana yang dimainkan di panggung terbuka dengan latar candi Hindu terbesar di Indonesia.</p>
+<h2>Lokasi Strategis di Kompleks Candi Prambanan</h2>
+<p>Ramayana Ballet dipentaskan di Taman Wisata Candi Prambanan, berlokasi di Jl. Raya Solo - Yogyakarta No.16, Kranggan, Bokoharjo, Kecamatan Prambanan, Kabupaten Sleman, DIY 55571. Tempat ini berada sekitar 16 kilometer sebelah timur kota Yogyakarta, mudah dijangkau dari pusat kota maupun Bandara Internasional Yogyakarta.</p>
+<p>Keunikan utama pertunjukan ini saat dipentaskan di panggung terbuka adalah latar belakang Candi Prambanan yang terlihat langsung, menciptakan suasana magis yang membuat pengunjung seolah terserap ke dalam cerita Ramayana itu sendiri.</p>
+<h2>Sendratari Terpanjang di Indonesia</h2>
+<p>Pertunjukan ini menggabungkan tari dan drama tanpa dialog, hanya diiringi musik gamelan tradisional Jawa. Penampilan ini menampilkan 16 penari utama dan lebih dari 200 penari serta musisi dari berbagai sanggar tari di Yogyakarta, membawakan kisah Rama, Shinta, Hanoman, dan Rahwana dengan koreografi megah.</p>
+<h2>Warisan Budaya yang Terus Hidup</h2>
+<p>Ramayana Ballet Prambanan bukan hanya pertunjukan wisata, tetapi juga media pembelajaran budaya. Perawatan candi dan pelestarian seni ini dikelola oleh PT Taman Wisata Candi Borobudur, Prambanan &amp; Ratu Boko (persero), entitas yang dipercaya pemerintah untuk menjaga tiga situs warisan dunia Indonesia.</p>
+<h2>Informasi Kunjungan</h2>
+<p>Tiket tersedia melalui Klook, Traveloka, atau langsung di loket Taman Wisata Candi Prambanan. Pertunjukan berlangsung setiap Selasa, Kamis, dan Sabtu pukul 19.30–21.00 WIB. Tersedia layanan antar-jemput dari kota Yogyakarta yang dapat dipesan bersamaan dengan tiket.</p>
+<blockquote><em>Untuk informasi jadwal dan harga tiket terbaru, kunjungi website resmi PT Taman Wisata Candi atau hubungi layanan pelanggan setempat.</em></blockquote>`,
     authors: [
       { init: "KR", color: "#c9a84c", name: "Kristiana Riestya Dhamajanti", role: "24/535307/SA/22934" }
     ]
@@ -937,48 +442,43 @@ const articles = [
   {
     cat: "Sejarah",
     date: "23 Mei 2026",
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStNcV07CE-tSMVNTOvj5zFe_nBFxmBgKfQlA&s",
+    readTime: "10 menit baca",
+    img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80",
     title: "Antara Sejarah dan Media Sosial: Cara Baru Wisatawan Menikmati Prambanan",
-    lead: "Di bawah langit senja Yogyakarta, Candi Prambanan berdiri megah dengan siluet bangunan batu yang menjulang di tengah keramaian wisatawan. Di depan Candi Siwa, Siska (23), wisatawan asal Semarang, sibuk mengatur posisi ponselnya untuk mendapatkan hasil foto terbaik. Sesekali ia berpindah tempat mencari sudut yang dianggap lebih estetik. Ketika ditanya alasan berkunjung ke Prambanan, jawabannya singkat.",
-    lead: "“Kesini emang hanya untuk berfoto-foto,” ujarnya."
-    lead: "Tak jauh dari tempatnya berdiri, sebuah papan informasi yang menjelaskan sejarah dan makna relief candi tampak sepi perhatian. Sementara itu, antrean wisatawan justru terlihat di beberapa titik yang dianggap paling menarik untuk berfoto. Pemandangan tersebut menunjukkan perubahan cara wisatawan menikmati destinasi budaya di era media sosial."
-    body: `<p>Sebagai situs warisan dunia UNESCO, Candi Prambanan bukan sekadar objek wisata. Kompleks candi Hindu terbesar di Indonesia ini menyimpan nilai sejarah, keagamaan, dan budaya yang telah bertahan selama berabad-abad. Relief-relief yang menghiasi dinding candi merekam kisah Ramayana sekaligus menjadi bukti perkembangan peradaban Jawa Kuno. Namun di tengah perkembangan teknologi digital, pengalaman wisata budaya tampaknya mengalami pergeseran. Media sosial kini menjadi bagian penting dari aktivitas wisata. Kehadiran Instagram, TikTok, dan platform digital lainnya mendorong wisatawan untuk mengabadikan perjalanan mereka dalam bentuk foto maupun video. Destinasi wisata tidak lagi dinilai hanya berdasarkan nilai sejarah atau pengalaman yang ditawarkan, tetapi juga berdasarkan daya tarik visual yang dapat ditampilkan di media sosial. Dalam konteks ini, Prambanan menjadi salah satu lokasi yang paling diuntungkan sekaligus menghadapi tantangan baru.</p>
-    <p>Data Badan Pusat Statistik (BPS) Kabupaten Sleman tahun 2023 menunjukkan bahwa Candi Prambanan menjadi destinasi wisata dengan jumlah kunjungan tertinggi di wilayah tersebut. Sepanjang tahun 2023, Prambanan menerima 2.447.882 kunjungan wisatawan. Jumlah ini jauh lebih tinggi dibandingkan Kaliurang yang mencatat 1.271.705 kunjungan maupun Tebing Breksi dengan 742.330 kunjungan. Dari total 6.697.930 kunjungan wisata di Kabupaten Sleman selama tahun 2023, lebih dari sepertiganya terpusat di kawasan Prambanan. Besarnya jumlah kunjungan tersebut menunjukkan bahwa daya tarik Prambanan masih sangat kuat di tengah persaingan destinasi wisata lainnya. Namun, tingginya angka kunjungan juga memperlihatkan perubahan pola konsumsi wisata budaya. Banyak wisatawan datang dengan tujuan utama mendokumentasikan pengalaman mereka melalui media sosial. Aktivitas berfoto dan membuat konten menjadi bagian yang tidak terpisahkan dari perjalanan wisata.</p>
-    <p>Fenomena ini membawa dampak yang beragam. Di satu sisi, media sosial berperan besar dalam memperkenalkan Prambanan kepada khalayak yang lebih luas. Foto dan video yang diunggah wisatawan menjadi promosi gratis yang mampu menarik lebih banyak pengunjung, termasuk generasi muda yang sebelumnya mungkin kurang tertarik pada wisata sejarah. Kehadiran media sosial juga membantu memperkuat posisi Prambanan sebagai salah satu ikon pariwisata Yogyakarta. Di sisi lain, fokus yang terlalu besar pada aspek visual berpotensi menggeser perhatian wisatawan dari nilai sejarah dan budaya yang dimiliki candi. Ketika pengalaman wisata lebih banyak dihabiskan untuk mencari spot foto terbaik, kesempatan untuk memahami cerita, filosofi, dan sejarah yang terkandung dalam situs budaya menjadi berkurang. Prambanan kemudian tidak hanya berfungsi sebagai ruang edukasi budaya, tetapi juga sebagai latar produksi konten digital.</p>
-    <p>Perubahan cara menikmati destinasi budaya ini menjadi tantangan bagi upaya mewujudkan wisata Yogyakarta berkelanjutan. Keberlanjutan pariwisata tidak hanya berkaitan dengan peningkatan jumlah kunjungan wisatawan, tetapi juga bagaimana nilai budaya yang dimiliki suatu destinasi tetap dapat dipahami dan diwariskan kepada generasi berikutnya. Jika aspek edukasi semakin terpinggirkan, maka fungsi penting situs budaya sebagai media pembelajaran masyarakat juga dapat berkurang. Karena itu, diperlukan upaya untuk menyeimbangkan kebutuhan wisatawan modern dengan fungsi pelestarian budaya. Penyediaan informasi yang lebih interaktif, pemanfaatan teknologi digital, maupun pengembangan tur berbasis cerita dapat menjadi alternatif untuk menarik minat wisatawan mengenal sejarah Prambanan tanpa mengurangi pengalaman berwisata mereka. Dengan cara tersebut, aktivitas berfoto dan pembelajaran budaya tidak perlu diposisikan sebagai dua hal yang saling bertentangan.</p>
-    <p>Fenomena yang terjadi di Prambanan menunjukkan bahwa media sosial telah mengubah cara wisatawan menikmati destinasi budaya. Candi yang dahulu lebih banyak dikunjungi untuk melihat dan mempelajari sejarah kini juga menjadi ruang produksi konten digital. Di tengah perubahan tersebut, tantangan terbesar bukanlah membatasi wisatawan untuk berfoto, melainkan memastikan bahwa keindahan visual Prambanan tetap berjalan beriringan dengan pemahaman terhadap nilai sejarah dan budaya yang menjadikannya istimewa.</p>
-    <blockquote><em>"Abadikan keindahannya di media sosialmu, simpan sejarahnya di ingatanmu."</em></blockquote>`,
-    authors: [
-      { init: "SP", color: "#5b8cdb", name: "Shintaningtyas Prastiwi Putri", role: "24/534991/SA/22913" }
-    ]
+    lead: "Di bawah langit senja Yogyakarta, seorang wisatawan muda sibuk mengatur posisi ponselnya di depan Candi Siwa. Ketika ditanya alasan berkunjung, jawabannya singkat: 'Kesini emang hanya untuk berfoto-foto.' Di balik tren itu, tersimpan pertanyaan penting — apa yang sebenarnya kita cari saat berwisata ke situs budaya berusia 1.000 tahun?",
+    body: `<p>Sebagai situs warisan dunia UNESCO, Candi Prambanan menyimpan nilai sejarah, keagamaan, dan budaya yang telah bertahan selama berabad-abad. Relief-relief yang menghiasi dinding candi merekam kisah Ramayana sekaligus menjadi bukti perkembangan peradaban Jawa Kuno. Namun di tengah era digital, pengalaman wisata budaya tampaknya mengalami pergeseran yang cukup signifikan.</p>
+<h2>Fenomena Wisata di Era Instagram</h2>
+<p>Media sosial kini menjadi bagian penting dari aktivitas wisata. Kehadiran Instagram dan TikTok mendorong wisatawan untuk mengabadikan perjalanan mereka dalam bentuk konten visual. Destinasi tidak lagi dinilai hanya berdasarkan nilai sejarah, tetapi juga berdasarkan daya tarik visual yang dapat ditampilkan di media sosial.</p>
+<p>Data BPS Kabupaten Sleman tahun 2023 menunjukkan Prambanan menjadi destinasi dengan kunjungan tertinggi — mencatat 2.447.882 kunjungan, jauh melampaui destinasi lain di wilayah tersebut. Dari total 6.697.930 kunjungan wisata di Kabupaten Sleman, lebih dari sepertiganya terpusat di kawasan Prambanan.</p>
+<h2>Dua Sisi Mata Uang</h2>
+<p>Fenomena ini membawa dampak yang beragam. Di satu sisi, media sosial berperan besar memperkenalkan Prambanan kepada khalayak lebih luas — foto dan video wisatawan menjadi promosi gratis yang mampu menarik pengunjung baru, termasuk generasi muda. Di sisi lain, fokus berlebihan pada aspek visual berpotensi menggeser perhatian dari nilai sejarah dan budaya yang sesungguhnya.</p>
+<p>Ketika pengalaman wisata lebih banyak dihabiskan untuk mencari spot foto terbaik, kesempatan untuk memahami filosofi dan sejarah yang terkandung dalam situs budaya pun berkurang. Prambanan kemudian tidak hanya berfungsi sebagai ruang edukasi, tetapi juga sebagai latar produksi konten digital.</p>
+<h2>Menuju Keseimbangan</h2>
+<p>Diperlukan upaya menyeimbangkan kebutuhan wisatawan modern dengan fungsi pelestarian budaya. Penyediaan informasi interaktif, pemanfaatan teknologi digital, maupun tur berbasis cerita dapat menjadi alternatif untuk menarik minat wisatawan mengenal sejarah Prambanan tanpa mengurangi pengalaman berwisata mereka.</p>
+<blockquote><em>"Abadikan keindahannya di media sosialmu, simpan sejarahnya di ingatanmu."</em></blockquote>`,
+    authors: allAuthors
   },
   {
-    cat: "Seni",
+    cat: "Seni &amp; Budaya",
     date: "30 Mei 2026",
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU7Z0x2zetzK4kyxmOl-QbDztt_JHGVEKLfg&s",
+    readTime: "7 menit baca",
+    img: "https://images.unsplash.com/photo-1596700695792-a70d8c2b64a5?w=1200&q=80",
     title: "Menjelajahi Candi Prambanan: Kemegahan Sejarah dan Seni yang Mendunia",
-    lead: "Pernahkah Anda membayangkan bagaimana sebuah kompleks bangunan megah setinggi 47 meter bisa berdiri tegak hanya dengan susunan batu tanpa semen? Jawabannya bisa Anda temukan saat melangkah kaki ke Candi Prambanan. Terletak di perbatasan Yogyakarta dan Jawa Tengah, mahakarya abad ke-9 ini bukan sekadar tumpukan batu kuno, melainkan simbol kejayaan, seni tingkat tinggi, dan romansa yang abadi. Mari kita bedah mengapa Candi Prambanan wajib masuk dalam bucket list perjalanan Anda!",
+    lead: "Pernahkah kamu membayangkan bangunan setinggi 47 meter berdiri kokoh tanpa satu pun butir semen? Di perbatasan Yogyakarta dan Jawa Tengah, mahakarya abad ke-9 itu berdiri nyata — menantang waktu, menembus generasi, dan siap membuatmu benar-benar terpesona.",
     body: `<h2>Antara Legenda Roro Jonggrang dan Fakta Sejarah</h2>
-    <p>Bagi masyarakat Indonesia, kisah Candi Prambanan sangat lekat dengan legenda Roro Jonggrang dan Bandung Bondowoso. Cerita tentang seribu candi yang dibangun dalam semalam oleh bala tentara jin selalu sukses memicu imajinasi kita sejak kecil.</p>
-    <p>Namun secara historis, candi Hindu terbesar di Indonesia ini dibangun oleh Raja Rakai Pikatan dari Kerajaan Mataram Kuno sekitar tahun 850 Masehi. Bangunan ini dipersembahkan untuk <em>Trimurti</em>—tiga dewa utama dalam agama Hindu: Dewa Siwa (Sang Penghancur), Dewa Wisnu (Sang Pemelihara), Dewa Brahma (Sang Pencipta). Sebagai pusatnya, candi Dewa Siwa berdiri paling tinggi dan megah di tengah-tengah kompleks, menandakan betapa dihormatinya beliau pada masa itu.</p>
-    <p>Saat Anda berjalan mengitari selasar candi, coba perhatikan dinding-dinding batunya. Anda akan menemukan pahatan relief yang sangat detail dan bercerita. Ketika Anda menjadi wisatawan di Candi Prambanan, cobalah untuk menggunakan jasa tour guide yang telah disediakan, sehingga Anda dapat mencari tahu lebih dalam mengenai detail Candi Prambanan. Prambanan memiliki relief yang mengisahkan epik Ramayana dan Krishnayana. Membaca relief ini harus dilakukan secara pradaksina (berjalan searah jarum jam dimulai dari pintu sebelah timur). Hal tersebut menjadi sebuah bukti nyata betapa jeniusnya para seniman masa lalu.</p>
-    <h2>Pesona Magis Saat Matahari Terbenam</h2>
-    <p>Jika Anda mencari momen terbaik untuk berkunjung, datanglah pada sore hari. Candi Prambanan terkenal sebagai salah satu spot sunset terbaik di Yogyakarta. Sebagai tips, datanglah sekitar jam 3 sore. Anda punya waktu cukup untuk mengeksplorasi area dalam candi, lalu bersiaplah di area taman luar saat matahari mulai turun.</p>
-    <p>Ketika langit berubah warna menjadi jingga keunguan, siluet megah menara-menara Prambanan akan terlihat sangat magis dan dramatis. Momen ini dijamin akan membuat <em>feed</em> Instagram Anda makin <em>aesthetic</em>.</p>
-    <h2>Pesona Magis Saat Matahari Terbenam</h2>
-    <p>Jika Anda mencari momen terbaik untuk berkunjung, datanglah pada sore hari. Candi Prambanan terkenal sebagai salah satu spot sunset terbaik di Yogyakarta. Sebagai tips, datanglah sekitar jam 3 sore. Anda punya waktu cukup untuk mengeksplorasi area dalam candi, lalu bersiaplah di area taman luar saat matahari mulai turun.</p>
-    authors: [
-    <h2>Jangan Lewatkan Sendratari Ramayana</h2>
-    <p>Petualangan Anda di Prambanan belum lengkap jika belum menonton Sendratari Ramayana (Ramayana Ballet). Pertunjukan seni ini digelar di panggung terbuka dengan latar belakang Candi Prambanan yang disorot lampu sorot megah (pada bulan-bulan tertentu).</p>
-    <p>Tanpa dialog, para penari profesional menyampaikan kisah cinta Rama dan Shinta melalui gerakan yang anggun, musik gamelan yang ritmis, dan atraksi api yang memukau. Ini adalah cara terbaik menutup hari Anda di Prambanan.</p>
-    <blockquote><em>Candi Prambanan bukan hanya tempat wisata biasa. Ia adalah warisan budaya dunia (UNESCO World Heritage) yang menyimpan kebanggaan bangsa. Keindahan arsitekturnya, kedalaman sejarahnya, dan atmosfer magisnya selalu berhasil membuat siapa saja terpukau. Jadi, kapan Anda berencana main ke Prambanan lagi?</em></blockquote>`,
-    authors: [
-      { init: "AR", color: "#7c5cdb", name: "Arief Rahmat Nurhidayat", role: "24/542525/SA/23315" }
-    ]
+<p>Bagi masyarakat Indonesia, kisah Candi Prambanan sangat lekat dengan legenda Roro Jonggrang dan Bandung Bondowoso — tentang seribu candi yang dibangun dalam semalam oleh bala tentara jin. Cerita ini selalu sukses memicu imajinasi kita sejak kecil.</p>
+<p>Namun secara historis, candi Hindu terbesar di Indonesia ini dibangun oleh Raja Rakai Pikatan dari Kerajaan Mataram Kuno sekitar tahun 850 Masehi. Bangunan ini dipersembahkan untuk <em>Trimurti</em> — tiga dewa utama Hindu: <strong>Dewa Siwa</strong> (Sang Penghancur), <strong>Dewa Wisnu</strong> (Sang Pemelihara), dan <strong>Dewa Brahma</strong> (Sang Pencipta). Candi Siwa berdiri paling tinggi di tengah kompleks, menandakan betapa dihormatinya beliau pada masa itu.</p>
+<h2>Membaca Relief yang Berbicara</h2>
+<p>Saat berjalan mengitari selasar candi, perhatikan dinding-dinding batunya. Kamu akan menemukan pahatan relief yang sangat detail dan bercerita. Prambanan memiliki relief yang mengisahkan epik Ramayana dan Krishnayana. Membacanya harus dilakukan secara <em>pradaksina</em> — berjalan searah jarum jam dari pintu sebelah timur. Gunakan jasa tour guide yang tersedia untuk menyelami makna tersembunyi di balik setiap pahatan.</p>
+<h2>Pesona Magis Saat Matahari Terbenam</h2>
+<p>Momen terbaik untuk berkunjung adalah sore hari. Datanglah sekitar jam 3 sore agar punya waktu cukup menjelajahi area dalam candi, lalu siapkan dirimu di taman luar saat matahari mulai turun. Ketika langit berubah jingga keunguan, siluet megah menara-menara Prambanan akan terlihat sangat magis dan dramatis — momen yang dijamin akan membuatmu berdecak kagum.</p>
+<h2>Jangan Lewatkan Sendratari Ramayana</h2>
+<p>Petualanganmu di Prambanan belum lengkap tanpa menonton Sendratari Ramayana. Pertunjukan seni ini digelar di panggung terbuka dengan latar Candi Prambanan yang disorot lampu megah. Tanpa dialog, para penari profesional menyampaikan kisah cinta Rama dan Shinta melalui gerakan anggun, musik gamelan yang ritmis, dan atraksi api yang memukau.</p>
+<blockquote><em>Candi Prambanan bukan hanya tempat wisata biasa. Ia adalah warisan budaya dunia (UNESCO World Heritage) yang menyimpan kebanggaan bangsa. Keindahan arsitekturnya, kedalaman sejarahnya, dan atmosfer magisnya selalu berhasil membuat siapa saja terpukau. Jadi, kapan kamu berencana main ke Prambanan?</em></blockquote>`,
+    authors: allAuthors
   }
 ];
 
-// ===== CAROUSEL =====
 let carouselIndex = 0;
 const cardsPerView = 3;
 const totalSlides = Math.ceil(articles.length / cardsPerView);
@@ -988,64 +488,54 @@ function scrollCarousel(dir) {
   carouselIndex = (carouselIndex + dir + totalSlides) % totalSlides;
   const track = document.getElementById('articleCarousel');
   const cardWidth = track.children[0].offsetWidth + 20;
-  track.style.transform = `translateX(-${carouselIndex * cardsPerView * cardWidth}px)`;
-  document.querySelectorAll('.dot').forEach((d, i) => {
+  track.style.transform = 'translateX(-' + (carouselIndex * cardsPerView * cardWidth) + 'px)';
+  document.querySelectorAll('.dot').forEach(function(d, i) {
     d.classList.toggle('active', i === carouselIndex);
   });
 }
-function goToSlide(i) {
-  carouselIndex = i;
-  scrollCarousel(0);
-}
+function goToSlide(i) { carouselIndex = i; scrollCarousel(0); }
 
-// ===== MINI CHART =====
 const months = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
-const values = [55, 48, 62, 70, 65, 78, 85, 90, 88, 72, 80, 95];
+const values = [55,48,62,70,65,78,85,90,88,72,80,95];
 const chartEl = document.getElementById('visitorChart');
 const labelsEl = document.getElementById('visitorLabels');
-const max = Math.max(...values);
-months.forEach((m, i) => {
-  const bar = document.createElement('div');
+const maxVal = Math.max.apply(null, values);
+months.forEach(function(m, i) {
+  var bar = document.createElement('div');
   bar.className = 'chart-bar' + (i === 10 ? ' active' : '');
-  bar.style.height = (values[i] / max * 75) + 'px';
+  bar.style.height = (values[i] / maxVal * 75) + 'px';
   chartEl.appendChild(bar);
-  const lbl = document.createElement('div');
+  var lbl = document.createElement('div');
   lbl.className = 'chart-label';
   lbl.textContent = m;
   labelsEl.appendChild(lbl);
 });
 
-// ===== ARTICLE MODAL =====
 function openArticle(idx) {
-  const a = articles[idx];
-  const inner = document.getElementById('articleInner');
-  inner.innerHTML = `
-    <img src="${a.img}" class="article-hero-img" alt="${a.title}">
-    <div class="article-content">
-      <div class="article-meta-bar">
-        <span class="article-cat">${a.cat}</span>
-        <span class="article-date">${a.date}</span>
-        <span class="article-read-time">· ${a.readTime}</span>
-      </div>
-      <h1>${a.title}</h1>
-      <p class="article-lead">${a.lead}</p>
-      <div class="article-body">${a.body}</div>
-      <div class="article-authors">
-        <h3>Ditulis oleh</h3>
-        <div class="authors-row">
-          ${a.authors.map(au => `
-            <div class="author-chip">
-              <div class="av" style="background:${au.color}">${au.init}</div>
-              <div class="info">
-                <h4>${au.name}</h4>
-                <span>${au.role}</span>
-              </div>
-            </div>
-          `).join('')}
-        </div>
-      </div>
-    </div>
-  `;
+  var a = articles[idx];
+  var inner = document.getElementById('articleInner');
+  var authorsHTML = a.authors.map(function(au) {
+    return '<div class="author-chip">' +
+      '<div class="av" style="background:' + au.color + '">' + au.init + '</div>' +
+      '<div class="info"><h4>' + au.name + '</h4><span>' + au.role + '</span></div>' +
+      '</div>';
+  }).join('');
+  inner.innerHTML =
+    '<img src="' + a.img + '" class="article-hero-img" alt="' + a.title + '">' +
+    '<div class="article-content">' +
+      '<div class="article-meta-bar">' +
+        '<span class="article-cat">' + a.cat + '</span>' +
+        '<span class="article-date">' + a.date + '</span>' +
+        '<span class="article-read-time">· ' + a.readTime + '</span>' +
+      '</div>' +
+      '<h1>' + a.title + '</h1>' +
+      '<p class="article-lead">' + a.lead + '</p>' +
+      '<div class="article-body">' + a.body + '</div>' +
+      '<div class="article-authors">' +
+        '<h3>Ditulis oleh</h3>' +
+        '<div class="authors-row">' + authorsHTML + '</div>' +
+      '</div>' +
+    '</div>';
   document.getElementById('articleModal').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
@@ -1058,17 +548,13 @@ function closeArticle() {
 document.getElementById('articleModal').addEventListener('click', function(e) {
   if (e.target === this) closeArticle();
 });
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeArticle(); });
 
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeArticle();
-});
-
-// Smooth scroll for nav links
-document.querySelectorAll('a[href^="#"]').forEach(a => {
+document.querySelectorAll('a[href^="#"]').forEach(function(a) {
   a.addEventListener('click', function(e) {
-    const href = this.getAttribute('href');
+    var href = this.getAttribute('href');
     if (href === '#') return;
-    const target = document.querySelector(href);
+    var target = document.querySelector(href);
     if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
   });
 });
