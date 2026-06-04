@@ -28,9 +28,7 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
-
   body {
     background: var(--bg);
     color: var(--text);
@@ -38,7 +36,6 @@
     overflow-x: hidden;
   }
 
-  /* SCROLLBAR */
   ::-webkit-scrollbar { width: 6px; }
   ::-webkit-scrollbar-track { background: var(--bg); }
   ::-webkit-scrollbar-thumb { background: var(--green); border-radius: 3px; }
@@ -103,7 +100,6 @@
       radial-gradient(ellipse 80% 60% at 60% 40%, rgba(74,140,92,0.15) 0%, transparent 70%),
       radial-gradient(ellipse 40% 40% at 20% 70%, rgba(201,168,76,0.08) 0%, transparent 60%);
   }
-  /* Animated forest silhouette */
   .hero-foliage {
     position: absolute; bottom: 0; left: 0; right: 0;
     height: 300px;
@@ -119,20 +115,6 @@
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
   }
-  .hero-tag {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(201,168,76,0.15);
-    border: 1px solid rgba(201,168,76,0.3);
-    border-radius: 20px;
-    padding: 5px 14px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--accent);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-bottom: 24px;
-  }
-  .hero-tag::before { content: '●'; font-size: 0.5rem; }
   .hero h1 {
     font-family: var(--font-display);
     font-size: clamp(2.4rem, 5vw, 4.2rem);
@@ -170,23 +152,7 @@
     display: inline-flex; align-items: center; gap: 8px;
   }
   .btn-primary:hover { background: var(--accent2); transform: translateY(-1px); }
-  .btn-outline {
-    background: transparent;
-    color: var(--text);
-    border: 1px solid var(--border);
-    padding: 13px 28px;
-    border-radius: 4px;
-    font-family: var(--font-body);
-    font-size: 0.9rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s;
-    text-decoration: none;
-    display: inline-flex; align-items: center; gap: 8px;
-  }
-  .btn-outline:hover { border-color: var(--green); color: var(--green-light); }
 
-  /* hero stats */
   .hero-stats {
     position: absolute; bottom: 80px; right: 60px;
     z-index: 2;
@@ -224,7 +190,7 @@
     font-size: 0.85rem;
     color: var(--text-dim);
     margin-top: 4px;
-    max-width: 400px;
+    max-width: 500px;
   }
   .section-nav { display: flex; gap: 8px; }
   .nav-btn {
@@ -240,7 +206,7 @@
   }
   .nav-btn:hover { background: var(--green); color: white; border-color: var(--green); }
 
-  /* ===== FEATURED ARTICLES (CAROUSEL) ===== */
+  /* ===== ARTICLES CAROUSEL ===== */
   .articles-section { background: var(--bg2); }
   .carousel-wrapper { position: relative; overflow: hidden; }
   .carousel-track {
@@ -330,10 +296,10 @@
     color: var(--accent);
     text-decoration: none;
     transition: gap 0.2s;
+    cursor: pointer;
   }
   .read-more:hover { gap: 8px; }
 
-  /* carousel dots */
   .carousel-dots {
     display: flex; justify-content: center; gap: 8px;
     margin-top: 28px;
@@ -346,132 +312,6 @@
     transition: all 0.3s;
   }
   .dot.active {
-    width: 24px;
-    background: var(--accent);
-  }
-
-  /* ===== SUBTEMA SECTION ===== */
-  .themes-section { background: var(--bg); }
-  .themes-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 14px;
-  }
-  .theme-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 24px 18px;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.25s;
-    text-decoration: none;
-  }
-  .theme-card:hover {
-    background: var(--card2);
-    border-color: var(--green);
-    transform: translateY(-2px);
-  }
-  .theme-icon {
-    font-size: 2rem;
-    margin-bottom: 12px;
-    display: block;
-    filter: grayscale(20%);
-  }
-  .theme-card h3 {
-    font-size: 0.88rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 6px;
-  }
-  .theme-card span {
-    font-size: 0.72rem;
-    color: var(--text-dim);
-  }
-
-  /* ===== PHOTO SHOWCASE ===== */
-  .photo-section { background: var(--bg2); }
-  .photo-showcase {
-    position: relative;
-    border-radius: 10px;
-    overflow: hidden;
-    height: 480px;
-  }
-  .photo-slides {
-    display: flex;
-    height: 100%;
-    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
-  .photo-slide {
-    flex: 0 0 100%;
-    position: relative;
-  }
-  .photo-slide-bg {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  .photo-slide-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(to right, rgba(0,0,0,0.7) 0%, transparent 60%);
-  }
-  .photo-slide-content {
-    position: absolute;
-    bottom: 48px; left: 48px;
-    max-width: 420px;
-  }
-  .photo-slide-content .tag {
-    font-size: 0.72rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    color: var(--accent);
-    margin-bottom: 12px;
-    display: block;
-  }
-  .photo-slide-content h3 {
-    font-family: var(--font-display);
-    font-size: 2rem;
-    font-weight: 700;
-    color: white;
-    line-height: 1.2;
-    margin-bottom: 12px;
-  }
-  .photo-slide-content p {
-    font-size: 0.88rem;
-    color: rgba(255,255,255,0.75);
-    line-height: 1.6;
-    margin-bottom: 20px;
-  }
-  .photo-prev, .photo-next {
-    position: absolute; top: 50%; transform: translateY(-50%);
-    width: 44px; height: 44px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.15);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255,255,255,0.2);
-    color: white;
-    font-size: 1rem;
-    cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    transition: background 0.2s;
-    z-index: 2;
-  }
-  .photo-prev { left: 20px; }
-  .photo-next { right: 20px; }
-  .photo-prev:hover, .photo-next:hover { background: rgba(255,255,255,0.25); }
-  .photo-dots {
-    position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
-    display: flex; gap: 8px;
-  }
-  .photo-dot {
-    width: 8px; height: 8px;
-    border-radius: 4px;
-    background: rgba(255,255,255,0.3);
-    border: none; cursor: pointer;
-    transition: all 0.3s;
-  }
-  .photo-dot.active {
     width: 24px;
     background: var(--accent);
   }
@@ -545,8 +385,6 @@
     background: linear-gradient(90deg, var(--green), var(--accent));
     transition: width 1s ease;
   }
-
-  /* mini chart */
   .mini-chart {
     height: 80px; margin-top: 16px;
     display: flex; align-items: flex-end; gap: 4px;
@@ -569,112 +407,6 @@
     font-size: 0.6rem;
     text-align: center;
     color: var(--text-dim);
-  }
-
-  /* ===== GLOBAL EFFORTS / RISET ===== */
-  .research-section { background: var(--bg2); }
-  .research-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-  }
-  .research-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.25s, box-shadow 0.25s;
-    text-decoration: none;
-  }
-  .research-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 32px rgba(0,0,0,0.3);
-  }
-  .research-img {
-    height: 160px; position: relative; overflow: hidden;
-  }
-  .research-img img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s;
-  }
-  .research-card:hover .research-img img { transform: scale(1.05); }
-  .research-img-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);
-  }
-  .research-img .cat {
-    position: absolute; bottom: 12px; left: 14px;
-    font-size: 0.7rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    color: var(--accent);
-  }
-  .research-body { padding: 18px; }
-  .research-body h3 {
-    font-family: var(--font-display);
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 8px;
-    line-height: 1.4;
-  }
-  .research-body p {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    line-height: 1.6;
-    margin-bottom: 14px;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  /* ===== PANDUAN / GUIDE ===== */
-  .guide-section { background: var(--bg); }
-  .guide-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-  }
-  .guide-card {
-    border-radius: 8px;
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-    transition: transform 0.25s;
-  }
-  .guide-card:hover { transform: scale(1.02); }
-  .guide-card img {
-    width: 100%; height: 220px;
-    object-fit: cover;
-    display: block;
-  }
-  .guide-card-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 50%);
-  }
-  .guide-card-content {
-    position: absolute; bottom: 20px; left: 20px; right: 20px;
-  }
-  .guide-card-content h3 {
-    font-family: var(--font-display);
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: white;
-    margin-bottom: 6px;
-  }
-  .guide-card-content p {
-    font-size: 0.75rem;
-    color: rgba(255,255,255,0.7);
-    line-height: 1.5;
-    margin-bottom: 10px;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
   }
 
   /* ===== TEAM ===== */
@@ -700,24 +432,25 @@
     margin: 0 auto 14px;
     display: flex; align-items: center; justify-content: center;
     font-family: var(--font-display);
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 700;
     color: white;
     border: 2px solid var(--border);
   }
   .team-card h4 {
-    font-size: 0.88rem;
+    font-size: 0.82rem;
     font-weight: 600;
     color: var(--text);
     margin-bottom: 4px;
+    line-height: 1.3;
   }
   .team-card .role {
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     color: var(--text-dim);
     margin-bottom: 8px;
   }
   .team-card .nim {
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     color: var(--accent);
     font-weight: 500;
   }
@@ -730,7 +463,7 @@
   }
   .footer-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
     gap: 40px;
     margin-bottom: 48px;
   }
@@ -745,7 +478,7 @@
     font-size: 0.82rem;
     color: var(--text-dim);
     line-height: 1.7;
-    max-width: 280px;
+    max-width: 340px;
   }
   .footer-col h4 {
     font-size: 0.8rem;
@@ -756,9 +489,7 @@
     margin-bottom: 16px;
   }
   .footer-col ul { list-style: none; }
-  .footer-col ul li {
-    margin-bottom: 8px;
-  }
+  .footer-col ul li { margin-bottom: 8px; }
   .footer-col ul li a {
     font-size: 0.82rem;
     color: var(--text-dim);
@@ -774,7 +505,7 @@
     color: var(--text-dim);
   }
 
-  /* ===== MODAL / ARTICLE PAGE ===== */
+  /* ===== ARTICLE MODAL ===== */
   .article-modal {
     position: fixed; inset: 0;
     z-index: 200;
@@ -918,16 +649,13 @@
     nav { padding: 0 24px; }
     .hero { padding: 60px 32px; }
     .hero-stats { right: 32px; bottom: 60px; }
-    .themes-grid { grid-template-columns: repeat(3, 1fr); }
     .team-grid { grid-template-columns: repeat(3, 1fr); }
     .footer-grid { grid-template-columns: 1fr 1fr; }
     .modal-close { right: 24px; }
   }
   @media (max-width: 768px) {
     .nav-links { display: none; }
-    .article-card { flex: 0 0 calc(85%); }
-    .themes-grid { grid-template-columns: repeat(2, 1fr); }
-    .research-grid, .guide-grid { grid-template-columns: 1fr 1fr; }
+    .article-card { flex: 0 0 85%; }
     .team-grid { grid-template-columns: repeat(2, 1fr); }
     .dashboard-grid { grid-template-columns: 1fr; }
     .footer-grid { grid-template-columns: 1fr; }
@@ -944,11 +672,8 @@
 <nav>
   <div class="nav-logo">TripTalk</div>
   <ul class="nav-links">
-    <li><a href="#" class="active">Beranda</a></li>
+    <li><a href="#home" class="active">Beranda</a></li>
     <li><a href="#articles">Artikel</a></li>
-    <li><a href="#themes">Subtema</a></li>
-    <li><a href="#research">Riset</a></li>
-    <li><a href="#guide">Panduan</a></li>
     <li><a href="#team">Tim Kami</a></li>
   </ul>
   <div class="nav-actions">
@@ -961,12 +686,10 @@
   <div class="hero-bg"></div>
   <div class="hero-foliage"></div>
   <div class="hero-content">
-    <div class="hero-tag">Jurnal Pariwisata Akademik</div>
-    <h1>Menyelami <em>Kedalaman</em><br>Pariwisata Indonesia</h1>
-    <p>Eksplorasi destinasi wisata Nusantara melalui lensa riset akademis — mengungkap sisi tersembunyi yang jarang dilihat wisatawan biasa.</p>
+    <h1>Berpetualang <em>sambil</em> Bercerita</h1>
+    <p>Jelajahi Indonesia lebih jauh. Temukan sisi magis Nusantara yang menyimpan sejuta pesona tak terduga.</p>
     <div class="hero-cta">
       <a href="#articles" class="btn-primary">Jelajahi Artikel ↓</a>
-      <a href="#research" class="btn-outline">Lihat Riset</a>
     </div>
   </div>
   <div class="hero-stats">
@@ -990,7 +713,7 @@
   <div class="section-header">
     <div>
       <h2>Artikel Unggulan</h2>
-      <p>Kajian mendalam pariwisata dari perspektif akademis dan budaya lokal</p>
+      <p>Yuk, rasakan liburan yang beda! Kenali lebih dekat kearifan lokal dan tradisi unik di setiap sudut Nusantara.</p>
     </div>
     <div class="section-nav">
       <button class="nav-btn" onclick="scrollCarousel(-1)">&#8592;</button>
@@ -1000,9 +723,10 @@
   <div class="carousel-wrapper">
     <div class="carousel-track" id="articleCarousel">
 
+      <!-- ARTIKEL 1: Ramayana Ballet -->
       <a href="#" class="article-card" onclick="openArticle(0); return false;">
         <div class="card-img">
-          <img src="https://storage.googleapis.com/mihwan/images/post/ramayana-ballet-prambanan.jpg" alt="Bali">
+          <img src="https://storage.googleapis.com/mihwan/images/post/ramayana-ballet-prambanan.jpg" alt="Ramayana Ballet Prambanan">
           <div class="card-img-overlay"></div>
           <span class="card-category">Budaya</span>
         </div>
@@ -1010,104 +734,50 @@
           <h3>Ramayana Ballet Prambanan: Pertunjukan Epik di Panggung Candi Milenium</h3>
           <div class="card-meta">
             <div class="card-author">
-              <div class="avatar" style="background:#4a8c5c">K</div>
-              <span class="author-name">Kristina Riestya Dhamajanti</span>
+              <div class="avatar" style="background:#c9a84c">KR</div>
+              <span class="author-name">Kristiana R.D.</span>
             </div>
             <span class="read-more">Baca →</span>
+          </div>
         </div>
-      </div>
-    </a>   
+      </a>
+
+      <!-- ARTIKEL 2: Template -->
       <a href="#" class="article-card" onclick="openArticle(1); return false;">
         <div class="card-img">
-          <img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=600&q=80" alt="Raja Ampat">
+          <img src="https://images.unsplash.com/photo-1504214208698-ea1916a2195a?w=600&q=80" alt="Pantai Pink Lombok">
           <div class="card-img-overlay"></div>
-          <span class="card-category">Seni&Pertunjukan</span>
+          <span class="card-category">Wisata Alam</span>
         </div>
         <div class="card-body">
-          <h3>Overtourism di Raja Ampat: Paradoks Surga yang Terancam Penggemarnya</h3>
-          <p>Raja Ampat menyimpan 75% spesies karang dunia, namun ledakan kunjungan wisata tanpa manajemen yang tepat justru mengancam ekosistem bawah laut yang menjadi daya tarik utamanya.</p>
+          <h3>Pantai Pink Lombok: Permata Tersembunyi di Selatan Nusa Tenggara</h3>
+          <p>Pasir berwarna kemerahan yang memukau, air biru jernih, dan suasana tenang menjadikan Pantai Pink sebagai surga tersembunyi yang wajib kamu kunjungi.</p>
           <div class="card-meta">
             <div class="card-author">
-              <div class="avatar" style="background:#c9a84c">SI">SI</div>
-              <span class="author-name">Siti Nurhaliza</span>
+              <div class="avatar" style="background:#5b8cdb">SP</div>
+              <span class="author-name">Shintaningtyas P.P.</span>
             </div>
-            <a href="#" class="read-more" onclick="openArticle(1); return false;">Baca →</a>
+            <span class="read-more">Baca →</span>
           </div>
         </div>
       </a>
 
+      <!-- ARTIKEL 3: Template -->
       <a href="#" class="article-card" onclick="openArticle(2); return false;">
         <div class="card-img">
-          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Borobudur">
+          <img src="https://images.unsplash.com/photo-1596401049011-7cee4ab7b5a0?w=600&q=80" alt="Kawah Ijen">
           <div class="card-img-overlay"></div>
-          <span class="card-category">Warisan</span>
+          <span class="card-category">Petualangan</span>
         </div>
         <div class="card-body">
-          <h3>Borobudur dan Dilema UNESCO: Pelestarian di Tengah Tekanan Komersialisasi</h3>
-          <p>Sejak penetapannya sebagai Situs Warisan Dunia, Borobudur menghadapi ketegangan antara kebutuhan konservasi dengan desakan ekonomi pariwisata massal yang terus meningkat.</p>
+          <h3>Kawah Ijen: Api Biru yang Memukau di Puncak Banyuwangi</h3>
+          <p>Fenomena api biru elektrik yang hanya ada dua di dunia ini menjadikan Kawah Ijen sebagai destinasi yang mengubah cara pandang kita tentang keajaiban alam Indonesia.</p>
           <div class="card-meta">
             <div class="card-author">
-              <div class="avatar" style="background:#5b8cdb">BP</div>
-              <span class="author-name">Budi Prasetyo</span>
+              <div class="avatar" style="background:#7c5cdb">AR</div>
+              <span class="author-name">Arief Rahmat N.</span>
             </div>
-            <a href="#" class="read-more" onclick="openArticle(2); return false;">Baca →</a>
-          </div>
-        </div>
-      </a>
-
-      <a href="#" class="article-card" onclick="openArticle(3); return false;">
-        <div class="card-img">
-          <img src="https://images.unsplash.com/photo-1496302894543-b16b85b82b23?w=600&q=80" alt="Toraja">
-          <div class="card-img-overlay"></div>
-          <span class="card-category">Sosial</span>
-        </div>
-        <div class="card-body">
-          <h3>Wisata Pemakaman Toraja: Ekonomi Duka dan Identitas Budaya yang Terjual</h3>
-          <p>Rambu Solo', upacara kematian terbesar di Toraja, kini menjadi magnet wisatawan internasional. Sebuah kajian tentang batas tipis antara penghargaan budaya dan eksploitasi ritual.</p>
-          <div class="card-meta">
-            <div class="card-author">
-              <div class="avatar" style="background:#d4624e">DL</div>
-              <span class="author-name">Dewi Lestari</span>
-            </div>
-            <a href="#" class="read-more" onclick="openArticle(3); return false;">Baca →</a>
-          </div>
-        </div>
-      </a>
-
-      <a href="#" class="article-card" onclick="openArticle(4); return false;">
-        <div class="card-img">
-          <img src="https://images.unsplash.com/photo-1561731216-c3a4d99437d5?w=600&q=80" alt="Komodo">
-          <div class="card-img-overlay"></div>
-          <span class="card-category">Konservasi</span>
-        </div>
-        <div class="card-body">
-          <h3>Pulau Komodo: Saat Reputasi Satwa Liar Menjadi Beban Ekologisnya</h3>
-          <p>Komodo dragon menjadi alasan utama jutaan wisatawan berdatangan, namun ironisnya popularitas itulah yang paling mengancam kelangsungan hidup spesies purba ini di habitat aslinya.</p>
-          <div class="card-meta">
-            <div class="card-author">
-              <div class="avatar" style="background:#7c5cdb">FH</div>
-              <span class="author-name">Fajar Hidayat</span>
-            </div>
-            <a href="#" class="read-more" onclick="openArticle(4); return false;">Baca →</a>
-          </div>
-        </div>
-      </a>
-
-      <a href="#" class="article-card" onclick="openArticle(5); return false;">
-        <div class="card-img">
-          <img src="https://images.unsplash.com/photo-1592364395653-83e648b20cc2?w=600&q=80" alt="Papua">
-          <div class="card-img-overlay"></div>
-          <span class="card-category">Etnografi</span>
-        </div>
-        <div class="card-body">
-          <h3>Wisata Adat Papua: Membaca Tubuh yang Dijadikan Objek Pandangan Turis</h3>
-          <p>Pagelaran budaya suku-suku Papua kerap diposisikan sebagai atraksi eksotis. Artikel ini mengurai perspektif poskolonial dalam relasi antara wisatawan dan komunitas adat Papua.</p>
-          <div class="card-meta">
-            <div class="card-author">
-              <div class="avatar" style="background:#4a8c5c">NW</div>
-              <span class="author-name">Nadia Wulandari</span>
-            </div>
-            <a href="#" class="read-more" onclick="openArticle(5); return false;">Baca →</a>
+            <span class="read-more">Baca →</span>
           </div>
         </div>
       </a>
@@ -1116,148 +786,6 @@
   </div>
   <div class="carousel-dots" id="carouselDots">
     <button class="dot active" onclick="goToSlide(0)"></button>
-    <button class="dot" onclick="goToSlide(1)"></button>
-    <button class="dot" onclick="goToSlide(2)"></button>
-    <button class="dot" onclick="goToSlide(3)"></button>
-  </div>
-</section>
-
-<!-- SUBTEMA -->
-<section class="themes-section" id="themes">
-  <div class="section-header">
-    <div>
-      <h2>Jelajahi Subtema</h2>
-      <p>Pilih topik yang ingin kamu dalami lebih jauh</p>
-    </div>
-  </div>
-  <div class="themes-grid">
-    <a href="#" class="theme-card">
-      <span class="theme-icon">🏛️</span>
-      <h3>Warisan Budaya</h3>
-      <span>18 artikel</span>
-    </a>
-    <a href="#" class="theme-card">
-      <span class="theme-icon">🌿</span>
-      <h3>Ekowisata</h3>
-      <span>24 artikel</span>
-    </a>
-    <a href="#" class="theme-card">
-      <span class="theme-icon">🌊</span>
-      <h3>Pariwisata Bahari</h3>
-      <span>21 artikel</span>
-    </a>
-    <a href="#" class="theme-card">
-      <span class="theme-icon">🏡</span>
-      <h3>Desa Wisata</h3>
-      <span>15 artikel</span>
-    </a>
-    <a href="#" class="theme-card">
-      <span class="theme-icon">🍛</span>
-      <h3>Gastronomi</h3>
-      <span>12 artikel</span>
-    </a>
-    <a href="#" class="theme-card">
-      <span class="theme-icon">🎭</span>
-      <h3>Seni Pertunjukan</h3>
-      <span>9 artikel</span>
-    </a>
-    <a href="#" class="theme-card">
-      <span class="theme-icon">🏔️</span>
-      <h3>Wisata Petualangan</h3>
-      <span>17 artikel</span>
-    </a>
-    <a href="#" class="theme-card">
-      <span class="theme-icon">🕌</span>
-      <h3>Wisata Religi</h3>
-      <span>11 artikel</span>
-    </a>
-    <a href="#" class="theme-card">
-      <span class="theme-icon">📊</span>
-      <h3>Kebijakan Pariwisata</h3>
-      <span>8 artikel</span>
-    </a>
-    <a href="#" class="theme-card">
-      <span class="theme-icon">👥</span>
-      <h3>Komunitas Lokal</h3>
-      <span>14 artikel</span>
-    </a>
-  </div>
-</section>
-
-<!-- PHOTO SHOWCASE -->
-<section class="photo-section" id="showcase">
-  <div class="section-header">
-    <div>
-      <h2>Galeri Destinasi</h2>
-      <p>Potret visual keindahan yang tersembunyi di seluruh Nusantara</p>
-    </div>
-    <div class="section-nav">
-      <button class="nav-btn" onclick="photoNav(-1)">&#8592;</button>
-      <button class="nav-btn" onclick="photoNav(1)">&#8594;</button>
-    </div>
-  </div>
-  <div class="photo-showcase">
-    <div class="photo-slides" id="photoSlides">
-      <div class="photo-slide">
-        <img src="https://images.unsplash.com/photo-1555400038-63f5ba517a47?w=1200&q=80" alt="Danau Toba" class="photo-slide-bg">
-        <div class="photo-slide-overlay"></div>
-        <div class="photo-slide-content">
-          <span class="tag">Destinasi Tersembunyi</span>
-          <h3>Danau Toba:<br>Laut di Atas Gunung Berapi</h3>
-          <p>Kaldera terbesar di dunia ini menyimpan sejarah letusan supervulkan 74.000 tahun lalu yang mengubah iklim global — sebuah fakta yang jarang diceritakan pemandu wisata.</p>
-          <a href="#" class="btn-primary" style="font-size:0.82rem; padding:10px 20px;">Baca Selengkapnya →</a>
-        </div>
-      </div>
-      <div class="photo-slide">
-        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80" alt="Gunung Rinjani" class="photo-slide-bg">
-        <div class="photo-slide-overlay"></div>
-        <div class="photo-slide-content">
-          <span class="tag">Riset Lapangan</span>
-          <h3>Rinjani dan Segare Anak:<br>Danau Suci yang Diperebutkan</h3>
-          <p>Di tengah pendakian ribuan turis per tahun, Danau Segare Anak tetap dianggap sakral oleh masyarakat Sasak dan Bali. Bagaimana keduanya berdamai?</p>
-          <a href="#" class="btn-primary" style="font-size:0.82rem; padding:10px 20px;">Baca Selengkapnya →</a>
-        </div>
-      </div>
-      <div class="photo-slide">
-        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80" alt="Flores" class="photo-slide-bg">
-        <div class="photo-slide-overlay"></div>
-        <div class="photo-slide-content">
-          <span class="tag">Etnografi</span>
-          <h3>Flores: Pulau Bunga yang<br>Menyimpan Trauma Kolonial</h3>
-          <p>Di balik keindahan tenun ikat dan kawah Kelimutu, terdapat lapisan sejarah penindasan yang membentuk cara masyarakat Flores memandang dan menyambut tamu dari luar.</p>
-          <a href="#" class="btn-primary" style="font-size:0.82rem; padding:10px 20px;">Baca Selengkapnya →</a>
-        </div>
-      </div>
-      <div class="photo-slide">
-        <img src="https://images.unsplash.com/photo-1516738901171-8eb4fc13bd20?w=1200&q=80" alt="Wakatobi" class="photo-slide-bg">
-        <div class="photo-slide-overlay"></div>
-        <div class="photo-slide-content">
-          <span class="tag">Kelautan</span>
-          <h3>Wakatobi: Ketika Suku Bajo<br>Kehilangan Lautnya</h3>
-          <p>Penetapan Wakatobi sebagai kawasan taman nasional dan destinasi selam kelas dunia justru membatasi akses nelayan Bajo yang telah tinggal di atas laut selama berabad-abad.</p>
-          <a href="#" class="btn-primary" style="font-size:0.82rem; padding:10px 20px;">Baca Selengkapnya →</a>
-        </div>
-      </div>
-      <div class="photo-slide">
-        <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=1200&q=80" alt="Yogyakarta" class="photo-slide-bg">
-        <div class="photo-slide-overlay"></div>
-        <div class="photo-slide-content">
-          <span class="tag">Urban Tourism</span>
-          <h3>Yogyakarta: Kota Pelajar yang<br>Terseret Arus Wisata Massal</h3>
-          <p>Ketika gang-gang bersejarah Kotagede dan kampung-kampung seniman Prawirotaman berubah menjadi destinasi Instagram, siapa yang diuntungkan dan siapa yang terpinggirkan?</p>
-          <a href="#" class="btn-primary" style="font-size:0.82rem; padding:10px 20px;">Baca Selengkapnya →</a>
-        </div>
-      </div>
-    </div>
-    <button class="photo-prev" onclick="photoNav(-1)">&#8592;</button>
-    <button class="photo-next" onclick="photoNav(1)">&#8594;</button>
-    <div class="photo-dots" id="photoDots">
-      <button class="photo-dot active"></button>
-      <button class="photo-dot"></button>
-      <button class="photo-dot"></button>
-      <button class="photo-dot"></button>
-      <button class="photo-dot"></button>
-    </div>
   </div>
 </section>
 
@@ -1309,145 +837,49 @@
   </div>
 </section>
 
-<!-- RESEARCH -->
-<section class="research-section" id="research">
-  <div class="section-header">
-    <div>
-      <h2>Upaya Konservasi Global</h2>
-      <p>Studi kasus dan riset lapangan tentang keberlanjutan pariwisata Indonesia</p>
-    </div>
-    <div class="section-nav">
-      <button class="nav-btn">&#8592;</button>
-      <button class="nav-btn">&#8594;</button>
-    </div>
-  </div>
-  <div class="research-grid">
-    <a href="#" class="research-card" onclick="openArticle(0); return false;">
-      <div class="research-img">
-        <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600&q=80" alt="">
-        <div class="research-img-overlay"></div>
-        <span class="cat">Studi Budaya</span>
-      </div>
-      <div class="research-body">
-        <h3>Komodifikasi Ritual: Kasus Upacara Ngaben di Bali</h3>
-        <p>Penelitian selama 18 bulan di tiga desa di Gianyar mengungkap bagaimana kehadiran kamera wisatawan secara perlahan mengubah tata cara dan makna ritual kremasi Hindu-Bali.</p>
-        <a href="#" class="read-more" onclick="openArticle(0); return false;">Baca Lebih →</a>
-      </div>
-    </a>
-    <a href="#" class="research-card" onclick="openArticle(1); return false;">
-      <div class="research-img">
-        <img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=600&q=80" alt="">
-        <div class="research-img-overlay"></div>
-        <span class="cat">Ekologi Laut</span>
-      </div>
-      <div class="research-body">
-        <h3>Pemutihan Terumbu Karang dan Industri Selam di Kepulauan Banda</h3>
-        <p>Data transek karang selama 5 tahun memperlihatkan korelasi antara intensitas penyelaman wisata dengan laju pemutihan terumbu karang di perairan historis Banda.</p>
-        <a href="#" class="read-more" onclick="openArticle(1); return false;">Baca Lebih →</a>
-      </div>
-    </a>
-    <a href="#" class="research-card" onclick="openArticle(2); return false;">
-      <div class="research-img">
-        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="">
-        <div class="research-img-overlay"></div>
-        <span class="cat">Kebijakan</span>
-      </div>
-      <div class="research-body">
-        <h3>Evaluasi Kebijakan Pariwisata Berkelanjutan di 10 Destinasi Super Prioritas</h3>
-        <p>Analisis implementasi regulasi CHSE dan dampaknya terhadap partisipasi masyarakat lokal dalam tata kelola destinasi wisata prioritas pemerintah Indonesia.</p>
-        <a href="#" class="read-more" onclick="openArticle(2); return false;">Baca Lebih →</a>
-      </div>
-    </a>
-  </div>
-</section>
-
-<!-- PANDUAN -->
-<section class="guide-section" id="guide">
-  <div class="section-header">
-    <div>
-      <h2>Panduan Wisata Bertanggung Jawab</h2>
-      <p>Cara menikmati Indonesia tanpa merugikan budaya dan lingkungannya</p>
-    </div>
-    <div class="section-nav">
-      <button class="nav-btn">&#8592;</button>
-      <button class="nav-btn">&#8594;</button>
-    </div>
-  </div>
-  <div class="guide-grid">
-    <div class="guide-card">
-      <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=600&q=80" alt="Ekowisata">
-      <div class="guide-card-overlay"></div>
-      <div class="guide-card-content">
-        <h3>Ekowisata</h3>
-        <p>Prinsip dan praktik wisata alam yang mendukung konservasi dan kesejahteraan masyarakat sekitar hutan.</p>
-        <a href="#" class="read-more">Pelajari →</a>
-      </div>
-    </div>
-    <div class="guide-card">
-      <img src="https://images.unsplash.com/photo-1541797548-b5f8e7dc52b7?w=600&q=80" alt="Etika Fotografi">
-      <div class="guide-card-overlay"></div>
-      <div class="guide-card-content">
-        <h3>Panduan Etika Fotografi</h3>
-        <p>Bagaimana memotret budaya dan manusia lokal dengan hormat dan tanpa melanggengkan stereotip eksotisme.</p>
-        <a href="#" class="read-more">Pelajari →</a>
-      </div>
-    </div>
-    <div class="guide-card">
-      <img src="https://images.unsplash.com/photo-1501555088652-021faa106b9b?w=600&q=80" alt="Belanja Lokal">
-      <div class="guide-card-overlay"></div>
-      <div class="guide-card-content">
-        <h3>Mendukung Ekonomi Lokal</h3>
-        <p>Cara memastikan pengeluaran wisata Anda benar-benar menguntungkan masyarakat adat dan pengrajin lokal.</p>
-        <a href="#" class="read-more">Pelajari →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- TEAM -->
 <section class="team-section" id="team">
   <div class="section-header">
     <div>
       <h2>Tim Peneliti</h2>
-      <p>Mahasiswa yang mengembangkan platform kajian pariwisata akademis ini</p>
     </div>
   </div>
   <div class="team-grid">
     <div class="team-card">
-      <div class="team-avatar" style="background: linear-gradient(135deg, #4a8c5c, #6ab87e)">AR</div>
-      <h4>Andi Rahmawan</h4>
-      <div class="role">Peneliti Budaya</div>
-      <div class="nim">NIM: 21XXX001</div>
+      <div class="team-avatar" style="background: linear-gradient(135deg, #4a8c5c, #6ab87e)">MS</div>
+      <h4>Muhammad Shofyyulloh</h4>
+      <div class="role">Antropologi Budaya</div>
+      <div class="nim">23/521917/SA/22691</div>
     </div>
     <div class="team-card">
-      <div class="team-avatar" style="background: linear-gradient(135deg, #c9a84c, #e8c96a)">SI</div>
-      <h4>Siti Nurhaliza</h4>
-      <div class="role">Ekologi Kelautan</div>
-      <div class="nim">NIM: 21XXX002</div>
+      <div class="team-avatar" style="background: linear-gradient(135deg, #c9a84c, #e8c96a)">KR</div>
+      <h4>Kristiana Riestya Dhamajanti</h4>
+      <div class="role">Antropologi Budaya</div>
+      <div class="nim">24/535307/SA/22934</div>
     </div>
     <div class="team-card">
-      <div class="team-avatar" style="background: linear-gradient(135deg, #5b8cdb, #80aff0)">BP</div>
-      <h4>Budi Prasetyo</h4>
-      <div class="role">Warisan & Sejarah</div>
-      <div class="nim">NIM: 21XXX003</div>
+      <div class="team-avatar" style="background: linear-gradient(135deg, #5b8cdb, #80aff0)">SP</div>
+      <h4>Shintaningtyas Prastiwi Putri</h4>
+      <div class="role">Antropologi Budaya</div>
+      <div class="nim">24/534991/SA/22913</div>
     </div>
     <div class="team-card">
-      <div class="team-avatar" style="background: linear-gradient(135deg, #d4624e, #e88a75)">DL</div>
-      <h4>Dewi Lestari</h4>
-      <div class="role">Etnografi</div>
-      <div class="nim">NIM: 21XXX004</div>
+      <div class="team-avatar" style="background: linear-gradient(135deg, #d4624e, #e88a75)">SM</div>
+      <h4>Sekar Manah Sejati</h4>
+      <div class="role">Antropologi Budaya</div>
+      <div class="nim">24/544598/SA/23486</div>
     </div>
     <div class="team-card">
-      <div class="team-avatar" style="background: linear-gradient(135deg, #7c5cdb, #9f83e8)">FH</div>
-      <h4>Fajar Hidayat</h4>
-      <div class="role">Konservasi</div>
-      <div class="nim">NIM: 21XXX005</div>
+      <div class="team-avatar" style="background: linear-gradient(135deg, #7c5cdb, #9f83e8)">AR</div>
+      <h4>Arief Rahmat Nurhidayat</h4>
+      <div class="role">Antropologi Budaya</div>
+      <div class="nim">24/542525/SA/23315</div>
     </div>
     <div class="team-card">
-      <div class="team-avatar" style="background: linear-gradient(135deg, #4a9c7a, #6ab8a0)">NW</div>
-      <h4>Nadia Wulandari</h4>
-      <div class="role">Studi Poskolonial</div>
-      <div class="nim">NIM: 21XXX006</div>
+      <div class="team-avatar" style="background: linear-gradient(135deg, #4a9c7a, #6ab8a0)">MJ</div>
+      <h4>Made Jyotisuci Sastra Dwijaksara</h4>
+      <div class="role">Antropologi Budaya</div>
+      <div class="nim">25/564408/SA/24036</div>
     </div>
   </div>
 </section>
@@ -1457,39 +889,21 @@
   <div class="footer-grid">
     <div class="footer-brand">
       <div class="logo">TripTalk</div>
-      <p>Platform kajian pariwisata Indonesia berbasis riset akademis. Mengungkap sisi tersembunyi destinasi wisata Nusantara untuk pemahaman yang lebih mendalam.</p>
+      <p>Wadah eksplorasi pesona Indonesia. Mengungkap surga tersembunyi di setiap sudut Nusantara untuk petualangan yang lebih dari sekadar liburan.</p>
     </div>
     <div class="footer-col">
       <h4>Beranda</h4>
       <ul>
-        <li><a href="#">Beranda</a></li>
-        <li><a href="#">Tentang Kami</a></li>
+        <li><a href="#home">Beranda</a></li>
+        <li><a href="#articles">Artikel</a></li>
+        <li><a href="#team">Tim Kami</a></li>
         <li><a href="#">Kontak</a></li>
-        <li><a href="#">Kebijakan Privasi</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Konservasi</h4>
-      <ul>
-        <li><a href="#">Keanekaragaman Hayati</a></li>
-        <li><a href="#">Terumbu Karang</a></li>
-        <li><a href="#">Hutan Hujan</a></li>
-        <li><a href="#">Satwa Liar</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Keberlanjutan</h4>
-      <ul>
-        <li><a href="#">Ekowisata</a></li>
-        <li><a href="#">Desa Wisata</a></li>
-        <li><a href="#">Panduan Wisata</a></li>
-        <li><a href="#">Riset & Data</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
     <span>© 2026 TripTalk. Dibuat dengan ❤️ oleh Tim Peneliti.</span>
-    <span>Tugas Akademik — Data Ilustratif</span>
+    <span>Jurnalisme Pariwisata</span>
   </div>
 </footer>
 
@@ -1505,121 +919,57 @@ const articles = [
   {
     cat: "Budaya",
     date: "20 Mei 2026",
+    readTime: "8 menit baca",
     img: "https://storage.googleapis.com/mihwan/images/post/ramayana-ballet-prambanan.jpg",
     title: "Ramayana Ballet Prambanan: Pertunjukan Epik di Panggung Candi Milenium",
-    lead: "Di era pariwisata modern, Ramayana Ballet Prambanan tetap menjadi bukti bahwa seni tradisi dapat bertahan dan berkembang. Lebih dari 60 tahun, pertunjukan ini terus menampilkan penari-penari terbaik di kawasan ini, menjaga warisan budaya Indonesia untuk generasi mendatang. Bagi wisatawan domestik maupun mancanegara, menyaksikan Ramayana Ballet adalah pengalaman yang membedakan Yogyakarta dari destinasi wisata lainnya di Indonesia. Di sini, sejarah, seni, dan arsitektur bertemu dalam satu panggung megah yang tak bertepi.",
+    lead: "Di era pariwisata modern, Ramayana Ballet Prambanan tetap menjadi bukti bahwa seni tradisi dapat bertahan dan berkembang. Lebih dari 60 tahun, pertunjukan ini terus menampilkan penari-penari terbaik di kawasan ini, menjaga warisan budaya Indonesia untuk generasi mendatang.",
     body: `<p>SLEMAN, DIY – Di tengah megahnya Candi Prambanan yang berusia lebih dari 1.000 tahun, sebuah pertunjukan seni tradisi terus berlanjut sudah sejak 1961. Sendratari Ramayana Prambanan bukan sekadar tarian, melainkan visualisasi epik Ramayana yang dimainkan di panggung terbuka dengan latar candi Hindu terbesar di Indonesia. Bagi wisatawan yang berkunjung ke Yogyakarta, menyaksikan Ramayana Ballet adalah cara istimewa untuk menikmati seni, budaya, dan sejarah Jawa dalam satu pengalaman yang tak terlupakan.</p>
     <h2>Lokasi Strategis di Kompleks Candi Prambanan</h2>
     <p>Ramayana Ballet dipentaskan di Taman Wisata Candi Prambanan, berlokasi di Jl. Raya Solo - Yogyakarta No.16, Kranggan, Bokoharjo, Kecamatan Prambanan, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55571. Tempat ini berada sekitar 16 kilometer sebelah timur kota Yogyakarta, mudah dijangkau baik dari pusat kota maupun dari Bandara Internasional Yogyakarta.</p>
     <p>Keunikan utama pertunjukan ini ketika dipentaskan di panggung terbuka (Open Stage) adalah latar belakang Candi Prambanan yang terlihat langsung dari panggung. Hal ini menciptakan suasana magis yang membuat pengunjung seolah terserap ke dalam cerita Ramayana itu sendiri.</p>
     <h2>Sendratari Terpanjang di Indonesia</h2>
-    <p>Sendratari Ramayana adalah pertunjukan kesenian yang paling populer di Yogyakarta. Pertunjukan ini menggabungkan tari dan drama tanpa dialog, hanya diiringi musik gamelan tradisional Jawa. Dengan dipentaskan di panggung terbuka di Prambanan, penampilan ini menampilkan 16 penari utama dan lebih dari 200 penari serta musisi yang berasal dari berbagai sanggar tari di Yogyakarta. Cerita yang ditampilkan mengambil dari epik Ramayana yang ditulis oleh Valmiki dalam bahasa Sanskerta. Pengunjung dapat melihat visualisasi kisah Rama, Shinta, Hanoman, dan Rahwana yang dipentaskan dengan koreografi megah di bawah cahaya lampu yang menyorot candi.</p>
+    <p>Sendratari Ramayana adalah pertunjukan kesenian yang paling populer di Yogyakarta. Pertunjukan ini menggabungkan tari dan drama tanpa dialog, hanya diiringi musik gamelan tradisional Jawa. Dengan dipentaskan di panggung terbuka di Prambanan, penampilan ini menampilkan 16 penari utama dan lebih dari 200 penari serta musisi yang berasal dari berbagai sanggar tari di Yogyakarta.</p>
     <h2>Warisan Budaya yang Terus Hidup</h2>
-    <p>Ramayana Ballet Prambanan bukan hanya pertunjukan wisata, tetapi juga media pembelajaran budaya. Penelitian dari UGM menunjukkan bahwa pertunjukan ini digunakan sebagai media karya wisata untuk siswa belajar tentang seni dan budaya tradisional. Perawatan candi dan pelestarian seni ini dikelola oleh PT Taman Wisata Candi Borobudur, Prambanan & Ratu Boko (persero), entitas yang dipercaya pemerintah untuk menjaga tiga situs warisan dunia Indonesia.</p>
+    <p>Ramayana Ballet Prambanan bukan hanya pertunjukan wisata, tetapi juga media pembelajaran budaya. Penelitian dari UGM menunjukkan bahwa pertunjukan ini digunakan sebagai media karya wisata untuk siswa belajar tentang seni dan budaya tradisional. Perawatan candi dan pelestarian seni ini dikelola oleh PT Taman Wisata Candi Borobudur, Prambanan &amp; Ratu Boko (persero), entitas yang dipercaya pemerintah untuk menjaga tiga situs warisan dunia Indonesia.</p>
     <h2>Mengunjungi Ramayana Ballet</h2>
     <p>Untuk menghadiri pertunjukan, pengunjung dapat membeli tiket melalui berbagai platform online seperti Klook, Traveloka, atau langsung di loket Taman Wisata Candi Prambanan. Beberapa tiket menawarkan pilihan reschedule dan diskon untuk aktivitas liburan. Bagi wisatawan yang membutuhkan transportasi dari kota Yogyakarta, tersedia layanan antar-jemput yang dapat dipesan bersamaan dengan pembelian tiket.</p>
     <blockquote><em>Untuk informasi lebih lanjut tentang jadwal dan harga tiket terbaru, kunjungi website resmi PT Taman Wisata Candi atau hubungi layanan pelanggan setempat.</em></blockquote>`,
     authors: [
-      { init: "K", color: "#4a8c5c", name: "Kristiana Riestya Dhamajanti", role: "24/535307/SA/22934" }
+      { init: "KR", color: "#c9a84c", name: "Kristiana Riestya Dhamajanti", role: "24/535307/SA/22934" }
     ]
   },
   {
-    cat: "Ekologi",
-    date: "22 Februari 2025",
-    readTime: "15 menit baca",
-    img: "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=1200&q=80",
-    title: "Overtourism di Raja Ampat: Paradoks Surga yang Terancam Penggemarnya",
-    lead: "Raja Ampat menyimpan 75% spesies karang dunia dan hampir 1.500 spesies ikan. Namun paradoks terbesar kawasan ini adalah: semakin banyak orang yang jatuh cinta padanya, semakin terancam kelangsungan hidupnya.",
-    body: `<p>Ketika National Geographic menyebut Raja Ampat sebagai "the last paradise on earth" pada 2012, bisa diprediksi apa yang akan terjadi selanjutnya. Kunjungan wisatawan meningkat hampir 800% dalam satu dekade. Kapal-kapal liveaboard berjejer di perairan yang dulu hanya dikunjungi nelayan dan peneliti kelautan.</p>
-    <h2>Tekanan di Bawah Permukaan</h2>
-    <p>Data dari Balai Besar Taman Nasional Teluk Cenderawasih menunjukkan penurunan tutupan karang hidup sebesar 4.2% per tahun di zona-zona yang paling sering dikunjungi wisatawan selam. Angka ini mungkin terdengar kecil, tetapi dalam konteks ekosistem karang yang butuh puluhan tahun untuk tumbuh satu sentimeter, ini adalah bencana dalam gerakan lambat.</p>
-    <blockquote>"Karang-karang di sini tidak hancur karena badai atau El Niño. Mereka hancur karena tangan-tangan yang menyentuh, kaki yang menginjak, dan jangkar yang dijatuhkan sembarangan," kata Dr. Mulyadi Santoso, peneliti dari LIPI yang telah bekerja di Raja Ampat selama 15 tahun.</blockquote>
-    <h2>Siapa yang Bertanggung Jawab?</h2>
-    <p>Pertanyaan tentang tanggung jawab menjadi rumit ketika kita melihat struktur industri pariwisata di Raja Ampat. Sebagian besar operator liveaboard adalah perusahaan dari luar daerah, bahkan luar negeri. Keuntungan mengalir ke Jakarta, Bali, atau ke rekening luar negeri — sementara kerusakan ekologisnya ditanggung oleh masyarakat Misool, Waigeo, dan pulau-pulau sekitarnya yang hidupnya bergantung pada laut.</p>`,
+    cat: "Wisata Alam",
+    date: "Template Artikel",
+    readTime: "— menit baca",
+    img: "https://images.unsplash.com/photo-1504214208698-ea1916a2195a?w=1200&q=80",
+    title: "Pantai Pink Lombok: Permata Tersembunyi di Selatan Nusa Tenggara",
+    lead: "Di ujung tenggara Pulau Lombok, tersembunyi sebuah pantai yang tak seperti pantai lainnya. Pantai Pink — atau Pantai Tangsi — memiliki pasir berwarna kemerahan yang membuatnya tampak seperti lukisan alam yang tak mungkin ada di dunia nyata.",
+    body: `<p>Warna merah muda pada pasir Pantai Tangsi berasal dari serpihan-serpihan halus karang merah (Foraminifera) yang bercampur dengan pasir putih biasa. Hasilnya adalah gradasi warna yang berubah-ubah tergantung sudut cahaya matahari — kadang merah muda pucat, kadang oranye keemasan saat sore hari.</p>
+    <h2>Cara Menuju Pantai Pink</h2>
+    <p>Untuk mencapai Pantai Pink, wisatawan dapat memulai perjalanan dari Kota Mataram menuju Pelabuhan Kayangan, lalu menyeberang ke Pulau Sumbawa. Namun rute yang lebih populer adalah melalui jalur darat dari Mataram ke Tanjung Ringgit, dilanjutkan dengan perahu kecil selama 15-20 menit.</p>
+    <h2>Tips Berkunjung</h2>
+    <p>Waktu terbaik mengunjungi Pantai Pink adalah pagi hari antara pukul 07.00–10.00 WITA, saat cahaya matahari menerpa pasir dari sudut yang sempurna dan belum banyak pengunjung. Bawalah perlengkapan snorkeling karena terumbu karang di sekitar pantai ini masih sangat terjaga dan indah.</p>
+    <blockquote><em>Ini adalah artikel template. Ganti isi artikel ini dengan konten perjalanan kamu sendiri!</em></blockquote>`,
     authors: [
-      { init: "SI", color: "#c9a84c", name: "Siti Nurhaliza", role: "Ekologi Kelautan" },
-      { init: "FH", color: "#7c5cdb", name: "Fajar Hidayat", role: "Konservasi" },
-      { init: "AR", color: "#4a8c5c", name: "Andi Rahmawan", role: "Peneliti Budaya" },
-      { init: "BP", color: "#5b8cdb", name: "Budi Prasetyo", role: "Warisan & Sejarah" },
-      { init: "DL", color: "#d4624e", name: "Dewi Lestari", role: "Etnografi" },
-      { init: "NW", color: "#4a9c7a", name: "Nadia Wulandari", role: "Studi Poskolonial" },
+      { init: "SP", color: "#5b8cdb", name: "Shintaningtyas Prastiwi Putri", role: "24/534991/SA/22913" }
     ]
   },
   {
-    cat: "Warisan",
-    date: "8 Januari 2025",
-    readTime: "10 menit baca",
-    img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80",
-    title: "Borobudur dan Dilema UNESCO: Pelestarian di Tengah Tekanan Komersialisasi",
-    lead: "Borobudur adalah monumen Buddha terbesar di dunia dan salah satu pencapaian arsitektur paling menakjubkan dalam sejarah manusia. Namun di balik kemegahannya tersimpan pertarungan yang tidak kasat mata antara warisan umat manusia dan kepentingan industri.",
-    body: `<p>Setiap tahun lebih dari 3 juta pengunjung mendaki stupa-stupa Borobudur. Gesekan jutaan telapak kaki itu secara perlahan mengikis batu andesit yang dipahat seribu tahun lalu. Ini bukan metafora — ini adalah proses fisik yang dapat diukur dan dibuktikan secara ilmiah.</p>
-    <h2>Antara Akses dan Pelestarian</h2>
-    <p>Pada 2022, pemerintah mengumumkan rencana pembatasan pengunjung ke zona atas Borobudur dan kenaikan harga tiket yang signifikan untuk wisatawan mancanegara. Reaksi publik terbagi dua: sebagian memuji langkah konservasi ini, sebagian lain mengecamnya sebagai kebijakan elitis yang mengkomersialisasi warisan budaya bersama.</p>
-    <blockquote>"Borobudur bukan milik pemerintah. Bukan milik wisatawan. Ini warisan seluruh umat manusia. Keputusan apapun tentang aksesnya harus melibatkan komunitas Buddhis, masyarakat lokal, dan pakar konservasi — bukan hanya kalkulasi ekonomi," kata Profesor Hariani dari Universitas Gadjah Mada.</blockquote>`,
+    cat: "Petualangan",
+    date: "Template Artikel",
+    readTime: "— menit baca",
+    img: "https://images.unsplash.com/photo-1596401049011-7cee4ab7b5a0?w=1200&q=80",
+    title: "Kawah Ijen: Api Biru yang Memukau di Puncak Banyuwangi",
+    lead: "Di ketinggian 2.386 meter, tersimpan salah satu fenomena alam paling menakjubkan di dunia. Api biru elektrik yang menyala di kegelapan malam menjadikan Kawah Ijen sebagai destinasi yang hanya bisa dipercaya setelah dilihat langsung.",
+    body: `<p>Fenomena api biru (blue fire) di Kawah Ijen adalah salah satu dari hanya dua tempat di dunia di mana fenomena ini terjadi secara alami — satunya lagi ada di Islandia. Api ini bukan berasal dari lava, melainkan dari gas belerang yang keluar dari celah-celah bumi dan terbakar saat bersentuhan dengan udara, menciptakan nyala api berwarna biru kehijauan yang sangat dramatis.</p>
+    <h2>Waktu Terbaik Menyaksikan Blue Fire</h2>
+    <p>Untuk menyaksikan blue fire, kamu harus mendaki pada dini hari, sekitar pukul 01.00–02.00 WIB. Api biru hanya terlihat jelas dalam kegelapan dan akan menghilang saat matahari mulai terbit. Siapkan masker gas atau respirator karena gas belerang di sekitar kawah sangat pekat.</p>
+    <h2>Danau Kawah yang Memesona</h2>
+    <p>Setelah matahari terbit, pemandangan berubah total. Danau kawah berwarna toska kehijauan yang luar biasa indah terbentang di bawah. Danau asam dengan pH mendekati nol ini adalah salah satu danau asam terbesar di dunia, dan warnanya berubah-ubah tergantung kondisi cuaca dan sudut matahari.</p>
+    <blockquote><em>Ini adalah artikel template. Ganti isi artikel ini dengan konten perjalanan kamu sendiri!</em></blockquote>`,
     authors: [
-      { init: "BP", color: "#5b8cdb", name: "Budi Prasetyo", role: "Warisan & Sejarah" },
-      { init: "AR", color: "#4a8c5c", name: "Andi Rahmawan", role: "Peneliti Budaya" },
-      { init: "DL", color: "#d4624e", name: "Dewi Lestari", role: "Etnografi" },
-      { init: "SI", color: "#c9a84c", name: "Siti Nurhaliza", role: "Ekologi Kelautan" },
-      { init: "FH", color: "#7c5cdb", name: "Fajar Hidayat", role: "Konservasi" },
-      { init: "NW", color: "#4a9c7a", name: "Nadia Wulandari", role: "Studi Poskolonial" },
-    ]
-  },
-  {
-    cat: "Sosial",
-    date: "3 April 2025",
-    readTime: "14 menit baca",
-    img: "https://images.unsplash.com/photo-1496302894543-b16b85b82b23?w=600&q=80",
-    title: "Wisata Pemakaman Toraja: Ekonomi Duka dan Identitas Budaya yang Terjual",
-    lead: "Di Tana Toraja, kematian bukan akhir dari kehidupan — melainkan awal dari perjalanan panjang menuju alam roh yang dirayakan dengan pesta besar. Kini perjalanan itu semakin sering disaksikan oleh kamera DSLR wisatawan dari berbagai penjuru dunia.",
-    body: `<p>Rambu Solo', upacara pemakaman Toraja, adalah salah satu ritual paling kompleks dan mahal di dunia. Seekor kerbau albino bisa dihargai ratusan juta rupiah, dan sebuah upacara besar bisa melibatkan ratusan kerbau sekaligus. Biaya sosial dan ekonomi yang luar biasa ini secara historis ditanggung bersama oleh seluruh komunitas.</p>
-    <h2>Uang Turis, Tekanan Baru</h2>
-    <p>Masuknya uang pariwisata telah mengubah dinamika ini. Di satu sisi, sponsor dari pengusaha yang bergerak di sektor pariwisata membantu keluarga menggelar upacara yang lebih besar. Di sisi lain, ekspektasi "tontonan spektakuler" dari wisatawan menciptakan tekanan baru yang mendistorsi makna asli ritual tersebut.</p>`,
-    authors: [
-      { init: "DL", color: "#d4624e", name: "Dewi Lestari", role: "Etnografi" },
-      { init: "NW", color: "#4a9c7a", name: "Nadia Wulandari", role: "Studi Poskolonial" },
-      { init: "AR", color: "#4a8c5c", name: "Andi Rahmawan", role: "Peneliti Budaya" },
-      { init: "BP", color: "#5b8cdb", name: "Budi Prasetyo", role: "Warisan & Sejarah" },
-      { init: "SI", color: "#c9a84c", name: "Siti Nurhaliza", role: "Ekologi Kelautan" },
-      { init: "FH", color: "#7c5cdb", name: "Fajar Hidayat", role: "Konservasi" },
-    ]
-  },
-  {
-    cat: "Konservasi",
-    date: "11 Maret 2025",
-    readTime: "11 menit baca",
-    img: "https://images.unsplash.com/photo-1561731216-c3a4d99437d5?w=600&q=80",
-    title: "Pulau Komodo: Saat Reputasi Satwa Liar Menjadi Beban Ekologisnya",
-    lead: "Komodo dragon telah hidup relatif tidak terganggu selama jutaan tahun di pulau-pulau terpencil Flores Timur. Lalu manusia modern menemukannya — dan semuanya berubah.",
-    body: `<p>Varanus komodoensis, atau Komodo dragon, adalah kadal terbesar yang masih hidup di muka bumi. Keberadaannya di Pulau Komodo dan sekitarnya merupakan sisa dari era prasejarah yang entah bagaimana bertahan hingga kini. Namun pertanyaannya: akankah ia bertahan dari era pariwisata massal?</p>
-    <h2>Habitasi yang Terfragmentasi</h2>
-    <p>Kehadiran ribuan wisatawan setiap hari telah mengubah perilaku komodo secara terukur. Penelitian dari University of Melbourne yang bekerja sama dengan LIPI menemukan bahwa komodo di zona wisata utama menunjukkan respons stres yang signifikan: berkurangnya waktu aktif berburu, perubahan pola pergerakan, dan penurunan angka reproduksi.</p>`,
-    authors: [
-      { init: "FH", color: "#7c5cdb", name: "Fajar Hidayat", role: "Konservasi" },
-      { init: "SI", color: "#c9a84c", name: "Siti Nurhaliza", role: "Ekologi Kelautan" },
-      { init: "AR", color: "#4a8c5c", name: "Andi Rahmawan", role: "Peneliti Budaya" },
-      { init: "BP", color: "#5b8cdb", name: "Budi Prasetyo", role: "Warisan & Sejarah" },
-      { init: "DL", color: "#d4624e", name: "Dewi Lestari", role: "Etnografi" },
-      { init: "NW", color: "#4a9c7a", name: "Nadia Wulandari", role: "Studi Poskolonial" },
-    ]
-  },
-  {
-    cat: "Etnografi",
-    date: "28 Februari 2025",
-    readTime: "13 menit baca",
-    img: "https://images.unsplash.com/photo-1592364395653-83e648b20cc2?w=600&q=80",
-    title: "Wisata Adat Papua: Membaca Tubuh yang Dijadikan Objek Pandangan Turis",
-    lead: "Ketika seorang turis memotret wajah bertatoo seorang perempuan Mentawai atau tubuh bercat tanah liat seorang pria Papua, apa sebenarnya yang sedang terjadi? Ini bukan sekadar pertukaran budaya — ini adalah relasi kuasa yang sarat dengan warisan kolonialisme.",
-    body: `<p>Dalam studi pariwisata, terdapat konsep yang disebut "male gaze" — namun dalam konteks ini kita perlu berbicara tentang "tourist gaze" atau pandangan wisatawan. John Urry, sosiolog yang mempopulerkan konsep ini, menjelaskan bagaimana wisatawan mengonsumsi destinasi dan penduduknya sebagai objek visual yang berbeda dari keseharian mereka.</p>
-    <h2>Papua dalam Pandangan Asing</h2>
-    <p>Representasi masyarakat adat Papua dalam brosur wisata dan media sosial seringkali terjebak dalam dua kutub: eksotisme primitif atau keajaiban alam yang hidup. Keduanya mendehumanisasi subjeknya dengan cara yang berbeda namun sama-sama bermasalah dari perspektif akademis maupun etis.</p>`,
-    authors: [
-      { init: "NW", color: "#4a9c7a", name: "Nadia Wulandari", role: "Studi Poskolonial" },
-      { init: "DL", color: "#d4624e", name: "Dewi Lestari", role: "Etnografi" },
-      { init: "AR", color: "#4a8c5c", name: "Andi Rahmawan", role: "Peneliti Budaya" },
-      { init: "BP", color: "#5b8cdb", name: "Budi Prasetyo", role: "Warisan & Sejarah" },
-      { init: "SI", color: "#c9a84c", name: "Siti Nurhaliza", role: "Ekologi Kelautan" },
-      { init: "FH", color: "#7c5cdb", name: "Fajar Hidayat", role: "Konservasi" },
+      { init: "AR", color: "#7c5cdb", name: "Arief Rahmat Nurhidayat", role: "24/542525/SA/23315" }
     ]
   }
 ];
@@ -1630,6 +980,7 @@ const cardsPerView = 3;
 const totalSlides = Math.ceil(articles.length / cardsPerView);
 
 function scrollCarousel(dir) {
+  if (totalSlides <= 1) return;
   carouselIndex = (carouselIndex + dir + totalSlides) % totalSlides;
   const track = document.getElementById('articleCarousel');
   const cardWidth = track.children[0].offsetWidth + 20;
@@ -1642,23 +993,6 @@ function goToSlide(i) {
   carouselIndex = i;
   scrollCarousel(0);
 }
-
-// ===== PHOTO CAROUSEL =====
-let photoIndex = 0;
-const photoTotal = 5;
-function photoNav(dir) {
-  photoIndex = (photoIndex + dir + photoTotal) % photoTotal;
-  document.getElementById('photoSlides').style.transform = `translateX(-${photoIndex * 100}%)`;
-  document.querySelectorAll('.photo-dot').forEach((d, i) => {
-    d.classList.toggle('active', i === photoIndex);
-  });
-}
-document.querySelectorAll('.photo-dot').forEach((dot, i) => {
-  dot.onclick = () => { photoIndex = i - 1; photoNav(1); };
-});
-
-// Auto-advance photo
-setInterval(() => photoNav(1), 5000);
 
 // ===== MINI CHART =====
 const months = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
@@ -1711,19 +1045,26 @@ function openArticle(idx) {
   document.getElementById('articleModal').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
+
 function closeArticle() {
   document.getElementById('articleModal').classList.remove('open');
   document.body.style.overflow = '';
 }
+
 document.getElementById('articleModal').addEventListener('click', function(e) {
   if (e.target === this) closeArticle();
 });
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeArticle(); });
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeArticle();
+});
 
 // Smooth scroll for nav links
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', function(e) {
-    const target = document.querySelector(this.getAttribute('href'));
+    const href = this.getAttribute('href');
+    if (href === '#') return;
+    const target = document.querySelector(href);
     if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
   });
 });
