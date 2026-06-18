@@ -71,7 +71,6 @@
   .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
   .btn-primary { background: var(--accent); color: #0e1a14; border: none; padding: 13px 28px; border-radius: 4px; font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
   .btn-primary:hover { background: var(--accent2); transform: translateY(-1px); }
-  .hero-stats { position: absolute; bottom: 80px; right: 60px; z-index: 2; display: flex; gap: 32px; animation: heroFade 1.4s ease forwards; }
   .stat-item { text-align: center; }
   .stat-num { font-family: var(--font-display); font-size: 2rem; font-weight: 700; color: var(--accent); display: block; text-shadow: 0 2px 12px rgba(0,0,0,0.5); }
   .stat-label { font-size: 0.72rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.8px; }
@@ -158,13 +157,13 @@
 
   @media (max-width: 1024px) {
     section { padding: 60px 32px; } nav { padding: 0 24px; } .hero { padding: 60px 32px; }
-    .hero-stats { right: 32px; bottom: 60px; } .team-grid { grid-template-columns: repeat(3, 1fr); }
+    .team-grid { grid-template-columns: repeat(3, 1fr); }
     .footer-grid { grid-template-columns: 1fr 1fr; } .modal-close { right: 24px; }
   }
   @media (max-width: 768px) {
     .nav-links { display: none; } .nav-contact span { display: none; } .article-card { flex: 0 0 85%; } .team-grid { grid-template-columns: repeat(2, 1fr); }
     .footer-grid { grid-template-columns: 1fr; }
-    .hero-stats { display: none; } .article-inner { margin: 0; border-radius: 0; }
+    .article-inner { margin: 0; border-radius: 0; }
     .modal-close { top: 16px; right: 16px; } .article-content { padding: 28px 20px; }
   }
 </style>
@@ -196,6 +195,8 @@
     <div class="hero-cta">
       <a href="#articles" class="btn-primary">Jelajahi Artikel ↓</a>
     </div>
+  </div>
+</section>
 
 <section class="articles-section" id="articles">
   <div class="section-header">
