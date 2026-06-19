@@ -141,10 +141,10 @@
   .article-date { font-size: 0.78rem; color: var(--text-dim); }
   .article-read-time { font-size: 0.78rem; color: var(--text-dim); }
   .article-content h1 { font-family: var(--font-display); font-size: 2rem; font-weight: 900; line-height: 1.2; color: var(--text); margin-bottom: 20px; }
-  .article-lead { font-size: 1.05rem; line-height: 1.75; color: var(--text-muted); margin-bottom: 32px; border-left: 3px solid var(--accent); padding-left: 20px; font-style: italic; }
-  .article-body p { font-size: 0.92rem; line-height: 1.85; color: var(--text-muted); margin-bottom: 20px; }
+  .article-lead { font-size: 1.05rem; line-height: 1.75; color: var(--text-muted); margin-bottom: 32px; border-left: 3px solid var(--accent); padding-left: 20px; font-style: italic; text-align: justify; }
+  .article-body p { font-size: 0.92rem; line-height: 1.85; color: var(--text-muted); margin-bottom: 20px; text-align: justify; }
   .article-body h2 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--text); margin: 32px 0 16px; }
-  .article-body blockquote { background: var(--card); border-left: 3px solid var(--green); padding: 20px 24px; border-radius: 0 6px 6px 0; margin: 24px 0; font-style: italic; color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; }
+  .article-body blockquote { background: var(--card); border-left: 3px solid var(--green); padding: 20px 24px; border-radius: 0 6px 6px 0; margin: 24px 0; font-style: normal; color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; text-align: justify; }
   .article-authors { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border); }
   .article-authors h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-dim); margin-bottom: 20px; }
   .authors-row { display: flex; gap: 16px; flex-wrap: wrap; }
@@ -391,9 +391,9 @@ const articles = [
 <p>Di balik tingginya antusiasme pengunjung, muncul pertanyaan mengenai arah pengembangan wisata budaya di era digital. Kehadiran instalasi seni kontemporer memang berhasil menarik perhatian generasi muda, tetapi destinasi budaya tidak dapat hanya bergantung pada daya tarik visual dan tren media sosial. Tantangannya adalah bagaimana menjaga agar warisan budaya tetap menjadi pusat pengalaman wisata, bukan sekadar latar belakang untuk produksi konten digital. Upaya tersebut terlihat pada rangkaian penutupan Sunflower Angel yang turut menghadirkan pertunjukan Sendratari Ramayana. Kehadiran pertunjukan ini menunjukkan bahwa atraksi modern tidak berdiri sendiri, melainkan menjadi bagian dari strategi yang menghubungkan wisatawan dengan kekayaan budaya yang telah lama hidup di kawasan Prambanan. Instalasi seni kontemporer menjadi daya tarik awal, sementara pertunjukan budaya berfungsi memperkenalkan kembali identitas dan nilai historis yang melekat pada kawasan warisan dunia tersebut.</p>
 <p>Dalam konteks wisata berkelanjutan, kolaborasi antara warisan budaya dan seni kontemporer dapat menjadi strategi untuk menarik wisatawan tanpa harus mengubah identitas utama suatu destinasi. Kehadiran instalasi seni seperti Sunflower Angel mampu menghadirkan pengalaman baru sekaligus memperluas jangkauan promosi kawasan budaya kepada generasi muda. Fenomena Sunflower Angel memperlihatkan bahwa wisata budaya terus beradaptasi dengan perkembangan zaman. Antrean panjang di depan instalasi bunga matahari raksasa itu mungkin hanya berlangsung sementara, tetapi pertanyaan mengenai bagaimana destinasi budaya dapat tetap relevan di era media sosial akan terus menjadi isu penting dalam pengembangan pariwisata Yogyakarta di masa depan. Pada akhirnya, keberhasilan sebuah destinasi tidak hanya diukur dari banyaknya pengunjung yang datang, tetapi juga dari sejauh mana pengalaman wisata tersebut mampu membangun apresiasi terhadap warisan budaya yang dimiliki.</p>
 <blockquote>Referensi<br>
-Badan Pusat Statistik Kabupaten Sleman. (2023). <em>Kabupaten Sleman dalam Angka 2023</em>. Sleman: BPS Kabupaten Sleman.<br>
-Dinas Pariwisata Kabupaten Sleman. (2025). <em>Data Kunjungan Wisata Kabupaten Sleman Semester I Tahun 2025</em>. Sleman: Dinas Pariwisata Kabupaten Sleman.<br>
-InJourney Destination Management. (2026). <em>Informasi Pameran Sunflower Angel di Kawasan Candi Prambanan Tahun 2026</em>. Yogyakarta: InJourney Destination Management.<br>
+Badan Pusat Statistik Kabupaten Sleman. (2023). Kabupaten Sleman dalam Angka 2023. Sleman: BPS Kabupaten Sleman.<br>
+Dinas Pariwisata Kabupaten Sleman. (2025). Data Kunjungan Wisata Kabupaten Sleman Semester I Tahun 2025. Sleman: Dinas Pariwisata Kabupaten Sleman.<br>
+InJourney Destination Management. (2026). Informasi Pameran Sunflower Angel di Kawasan Candi Prambanan Tahun 2026. Yogyakarta: InJourney Destination Management.<br>
 Sumber gambar: InJourney Destination (2026), diakses dari https://cdn-prd.tongkolspace.com/injourneydestination/wp-content/uploads/2026/06/7V1A0891.jpg pada 20 Mei 2026.</blockquote>`,
     authors: allAuthors
   },
@@ -434,7 +434,7 @@ Sumber gambar: Pikiran Rakyat (2026), diakses dari https://assets.pikiran-rakyat
 AlJamal S, Raharjo W. (2025). The Traditional Settlement Pattern in Kotagede and Its Impact on Human Activities and Behavior. International Journal of Architecture and Urbanism, 9 (3), 421-431.<br>
 Mutiara, M. B. F., Sholihah, A. B., & Santosa, R. B. (2026). Kajian proses dan dampak gentrifikasi di kawasan cagar budaya Kotagede: Tinjauan sosial-spasial. NALARs, 25(1), 57–70.<br>
 United Nations Educational, Scientific and Cultural Organization. (2007). Homeowner's conservation manual: Kotagede heritage district, Yogyakarta, Indonesia.<br>
-umber gambar: Kompas.com (2022), diakses dari https://asset.kompas.com/crops/W6BH2jRukMxkF3xc3Zl-s4lIPp0=/0x0:3375x2250/750x500/data/photo/2022/04/16/625ad24d689da.jpg pada 30 Mei 2026.</blockquote>`,
+Sumber gambar: Kompas.com (2022), diakses dari https://asset.kompas.com/crops/W6BH2jRukMxkF3xc3Zl-s4lIPp0=/0x0:3375x2250/750x500/data/photo/2022/04/16/625ad24d689da.jpg pada 30 Mei 2026.</blockquote>`,
     authors: allAuthors
   },
   {
